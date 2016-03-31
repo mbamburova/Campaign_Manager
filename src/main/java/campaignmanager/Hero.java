@@ -8,7 +8,7 @@ public class Hero {
     private Long id;
     private String hero_name;
     private int hero_level;
-    private int a = 7;
+    /* U know smt? ,... */
 
     public Long getId() {
         return id;
