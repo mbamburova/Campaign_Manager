@@ -22,15 +22,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="campaignManager" />
+        <module name="Campaign_Manager_web" />
         <module name="campaignmanager" />
-        <module name="gravemanager" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Campaign_Manager_web" target="1.7" />
       <module name="campaignmanager" target="1.8" />
       <module name="campaignManager" target="1.8" />
-      <module name="gravemanager" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

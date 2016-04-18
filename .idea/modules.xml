@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Campaign_Manager.iml" filepath="$PROJECT_DIR$/Campaign_Manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Campaign_Manager_web/Campaign_Manager_web.iml" filepath="$PROJECT_DIR$/../Campaign_Manager_web/Campaign_Manager_web.iml" />
       <module fileurl="file://$PROJECT_DIR$/campaignManager.iml" filepath="$PROJECT_DIR$/campaignManager.iml" />
     </modules>
   </component>

@@ -6,7 +6,11 @@
 
     <groupId>cz.muni.fi.pv168</groupId>
     <artifactId>campaignmanager</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../Campaign_Manager_web</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -45,6 +49,11 @@
             <artifactId>mockito-core</artifactId>
             <version>1.10.19</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>RELEASE</version>
         </dependency>
 
     </dependencies>
