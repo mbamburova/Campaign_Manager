@@ -73,41 +73,7 @@ public class HeroManagerImpl implements HeroManager {
         return result;
     }
 
-    @Override
-    public void createHero(Hero hero) {
-        checkDataSource();
-        validate(hero);
-        if (hero.getId() != null) {
-            throw new IllegalEntityException("hero id is already set");
-        }
-        Connection conn = null;
-        PreparedStatement st = null;
-        try {
-            conn = dataSource.getConnection();
-            // Temporary turn autocommit mode off. It is turned back on in
-            // method DBUtils.closeQuietly(...)
-            conn.setAutoCommit(false);
-            st = conn.prepareStatement(
-                    "INSERT INTO Hero (hero_name,hero_level) VALUES (?,?)",
-                    Statement.RETURN_GENERATED_KEYS);
-            st.setString(1, hero.getName());
-            st.setInt(2, hero.getLevel());
 
-            int count = st.executeUpdate();
-            DBUtils.checkUpdatesCount(count, hero, true);
-
-            Long id = DBUtils.getId(st.getGeneratedKeys());
-            hero.setId(id);
-            conn.commit();
-        } catch (SQLException ex) {
-            String msg = "Error when inserting hero into db";
-            logger.log(Level.SEVERE, msg, ex);
-            throw new ServiceFailureException(msg, ex);
-        } finally {
-            DBUtils.doRollbackQuietly(conn);
-            DBUtils.closeQuietly(conn, st);
-        }
-    }
 
     private void validate(Hero hero) throws ValidationException {
         if (hero == null) {
@@ -163,6 +129,43 @@ public class HeroManagerImpl implements HeroManager {
             return null;
         }
     }
+
+    @Override
+    public void createHero(Hero hero) {
+        checkDataSource();
+        validate(hero);
+        if (hero.getId() != null) {
+            throw new IllegalEntityException("hero id is already set");
+        }
+        Connection conn = null;
+        PreparedStatement st = null;
+        try {
+            conn = dataSource.getConnection();
+            // Temporary turn autocommit mode off. It is turned back on in
+            // method DBUtils.closeQuietly(...)
+            conn.setAutoCommit(false);
+            st = conn.prepareStatement(
+                    "INSERT INTO Hero (hero_name,hero_level) VALUES (?,?)",
+                    Statement.RETURN_GENERATED_KEYS);
+            st.setString(1, hero.getName());
+            st.setInt(2, hero.getLevel());
+
+            int count = st.executeUpdate();
+            DBUtils.checkUpdatesCount(count, hero, true);
+
+            Long id = DBUtils.getId(st.getGeneratedKeys());
+            hero.setId(id);
+            conn.commit();
+        } catch (SQLException ex) {
+            String msg = "Error when inserting hero into db";
+            logger.log(Level.SEVERE, msg, ex);
+            throw new ServiceFailureException(msg, ex);
+        } finally {
+            DBUtils.doRollbackQuietly(conn);
+            DBUtils.closeQuietly(conn, st);
+        }
+    }
+
 
     @Override
     public void updateHero(Hero hero) {
