@@ -11,11 +11,16 @@ public class MainWindow extends javax.swing.JFrame {
 
     private JPanel Mission;
     private JPanel Hero;
-    private JButton deleteButton;
     private JTextField textField1;
     private JCheckBox availableCheckBox;
     private JSpinner spinner1;
     private JSpinner spinner2;
+    private JButton viewAllButton;
+    private JButton viewAvailableButton;
+    private JTable MissionTable;
+    private JTable HeroTable;
+    private JButton viewAllButton2;
+    private JButton searchByNameButton;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
