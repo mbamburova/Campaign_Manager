@@ -4,13 +4,12 @@ import common.DBUtils;
 import common.IllegalEntityException;
 import common.ServiceFailureException;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -164,7 +163,7 @@ public class CampaignManagerImpl implements CampaignManager {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
                     "SELECT Hero.id, hero_name, hero_level " +
-                            "FROM Hero JOIN Mission ON missin.id = Hero.missionId " +
+                            "FROM Hero JOIN Mission ON mission.id = Hero.missionId " +
                             "WHERE Mission.id = ?");
 
             st.setLong(1, mission.getId());
