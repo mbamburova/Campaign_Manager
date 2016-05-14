@@ -45,11 +45,12 @@ public class MissionManagerImpl implements MissionManager {
             conn = dataSource.getConnection();
             conn.setAutoCommit(false);
             st = conn.prepareStatement(
-                    "INSERT INTO Mission (level_required,capacity,available) VALUES (?,?,?)",
+                    "INSERT INTO Mission (mission_name, level_required,capacity,available) VALUES (?,?,?,?)",
                     Statement.RETURN_GENERATED_KEYS);
-            st.setInt(1, mission.getLevelRequired());
-            st.setInt(2, mission.getCapacity());
-            st.setBoolean(3, mission.isAvailable());
+            st.setString(1, mission.getMission_name());
+            st.setInt(2, mission.getLevelRequired());
+            st.setInt(3, mission.getCapacity());
+            st.setBoolean(4, mission.isAvailable());
 
             int count = st.executeUpdate();
             DBUtils.checkUpdatesCount(count, mission, true);
@@ -82,11 +83,12 @@ public class MissionManagerImpl implements MissionManager {
             conn = dataSource.getConnection();
             conn.setAutoCommit(false);
             st = conn.prepareStatement(
-                    "UPDATE Mission SET level_required = ?, capacity = ?, available = ? WHERE id = ?");
-            st.setInt(1, mission.getLevelRequired());
-            st.setInt(2, mission.getCapacity());
-            st.setBoolean(3, mission.isAvailable());
-            st.setLong(4, mission.getId());
+                    "UPDATE Mission SET mission_name = ?, level_required = ?, capacity = ?, available = ? WHERE id = ?");
+            st.setString(1, mission.getMission_name());
+            st.setInt(2, mission.getLevelRequired());
+            st.setInt(3, mission.getCapacity());
+            st.setBoolean(4, mission.isAvailable());
+            st.setLong(5, mission.getId());
 
 
             int count = st.executeUpdate();
@@ -116,7 +118,7 @@ public class MissionManagerImpl implements MissionManager {
         try {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
-                    "SELECT id, level_required, capacity, available FROM Mission WHERE id = ?");
+                    "SELECT id, mission_name, level_required, capacity, available FROM Mission WHERE id = ?");
             st.setLong(1, id);
             return executeQueryForSingleMission(st);
         } catch (SQLException ex) {
@@ -151,7 +153,7 @@ public class MissionManagerImpl implements MissionManager {
         try {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
-                    "SELECT id, level_required, capacity, available FROM Mission");
+                    "SELECT id, mission_name, level_required, capacity, available FROM Mission");
             return executeQueryForMultipleMissions(st);
         } catch (SQLException ex) {
             String msg = "Error when getting all bodies from DB";
@@ -174,6 +176,7 @@ public class MissionManagerImpl implements MissionManager {
     static private Mission rowToMission(ResultSet rs) throws SQLException {
         Mission result = new Mission();
         result.setId(rs.getLong("id"));
+        result.setMission_name(rs.getString("mission_name"));
         result.setLevelRequired(rs.getInt("level_required"));
         result.setCapacity(rs.getInt("capacity"));
         result.setAvailable(rs.getBoolean("available"));
@@ -184,6 +187,10 @@ public class MissionManagerImpl implements MissionManager {
     private void validate(Mission mission) throws IllegalArgumentException {
         if (mission == null) {
             throw new IllegalArgumentException("mission is null");
+        }
+
+        if (mission.getMission_name() == null) {
+            throw new IllegalArgumentException("mission name is null");
         }
 
         if (mission.getLevelRequired() < 1) {
