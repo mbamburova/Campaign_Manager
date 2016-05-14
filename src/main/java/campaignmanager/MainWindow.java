@@ -7,6 +7,8 @@ import java.awt.*;
  * Created by Anonym on 14. 5. 2016.
  */
 public class MainWindow extends JFrame {
+
+    //this is a change!!!
     private JPanel panel1;
     private JTabbedPane campaignPanel;
     private JTable heroTable;
@@ -33,6 +35,23 @@ public class MainWindow extends JFrame {
     private JLabel heroLevel;
     private JScrollPane heroTableScrollPane;
     private JLabel heroesOfTheTavernLabel;
+    private JScrollPane missionTableScrollPane;
+    private JLabel tavernMissionsLabel;
+    private JTable missionTable;
+    private JLabel levelRequiredLabel;
+    private JTextField missionNameTextField;
+    private JSpinner missionLevelSpinner;
+    private JLabel missionCapacityLabel;
+    private JSpinner missionCapacitySpinner;
+    private JCheckBox missionAvailabilityCheckBox;
+    private JLabel availableLable;
+    private JButton missionCreateButton;
+    private JButton missionUpdateButton;
+    private JLabel missionName;
+    private JButton sendToMissionButton;
+    private JComboBox heroNameComboBox;
+    private JComboBox missionNameComboBox;
+    private JButton leaveMissionButton;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
