@@ -4,25 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Michaela Bamburová on 23.04.2016.
+ * Created by Anonym on 14. 5. 2016.
  */
-public class MainWindow extends javax.swing.JFrame {
-
-
-    private JPanel Mission;
-    private JPanel Hero;
-    private JCheckBox availableCheckBox;
-    private JSpinner spinner1;
-    private JSpinner spinner2;
-    private JButton viewAllButton;
-    private JButton viewAvailableButton;
-    private JTable MissionTable;
+public class MainWindow extends JFrame {
+    private JPanel panel1;
+    private JTabbedPane tabbedPane1;
+    private JTable table1;
     private JTextField textField1;
     private JTextField textField2;
-    private JButton createButton;
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JTable table2;
     private JTextField textField3;
-    private JButton searchButton;
-    private JTable table1;
+    private JSpinner spinner1;
+    private JSpinner spinner2;
+    private JCheckBox checkBox1;
+    private JButton button4;
+    private JButton button5;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JButton button6;
+    private JButton button7;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
@@ -32,13 +35,5 @@ public class MainWindow extends javax.swing.JFrame {
                     frame.setVisible(true);
                 }
         );
-
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-
-
     }
 }
-
