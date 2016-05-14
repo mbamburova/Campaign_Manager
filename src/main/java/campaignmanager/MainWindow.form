@@ -32,7 +32,7 @@
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Label"/>
+                  <text value="Name"/>
                 </properties>
               </component>
               <component id="1fec8" class="javax.swing.JTextField" binding="textField1" default-binding="true">
@@ -48,7 +48,7 @@
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Label"/>
+                  <text value="Level"/>
                 </properties>
               </component>
               <component id="f8f8" class="javax.swing.JTextField" binding="textField2" default-binding="true">
@@ -59,12 +59,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="6d831" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="6d831" class="javax.swing.JButton" binding="createButton" default-binding="true">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Create"/>
                 </properties>
               </component>
               <component id="916e0" class="javax.swing.JLabel">
@@ -72,7 +72,7 @@
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Label"/>
+                  <text value="Search by name"/>
                 </properties>
               </component>
               <component id="8066f" class="javax.swing.JTextField" binding="textField3" default-binding="true">
@@ -83,12 +83,12 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="36ed7" class="javax.swing.JButton" binding="button2" default-binding="true">
+              <component id="36ed7" class="javax.swing.JButton" binding="searchButton" default-binding="true">
                 <constraints>
                   <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <text value="Search"/>
                 </properties>
               </component>
               <scrollpane id="94e75">

@@ -20,9 +20,9 @@ public class MainWindow extends javax.swing.JFrame {
     private JTable table1;
     private JTextField textField1;
     private JTextField textField2;
-    private JButton button1;
+    private JButton createButton;
     private JTextField textField3;
-    private JButton button2;
+    private JButton searchButton;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
