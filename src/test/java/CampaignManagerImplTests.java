@@ -46,7 +46,7 @@ public class CampaignManagerImplTests {
 
     @Test(expected = IllegalStateException.class)
     public void sendHeroToMission() throws Exception {
-        Mission mission = MissionManagerImplTests.newMission(1, 2, true);
+        Mission mission = MissionManagerImplTests.newMission("m2",1, 2, true);
         Hero hero = HeroManagerImplTests.newHero("Dragon", 2);
 
         manager.sendHeroToMission(hero, mission);
@@ -55,7 +55,7 @@ public class CampaignManagerImplTests {
 
     @Test (expected = IllegalStateException.class)
     public void removeHeroFromMission() {
-        Mission mission = MissionManagerImplTests.newMission(1, 2, true);
+        Mission mission = MissionManagerImplTests.newMission("m2",1, 2, true);
         Hero hero = HeroManagerImplTests.newHero("Dragon", 2);
 
         manager.removeHeroFromMission(hero, mission);
@@ -63,7 +63,7 @@ public class CampaignManagerImplTests {
 
     @Test (expected = IllegalStateException.class)
     public void sendHeroToUnavailableMission() {
-        Mission mission = MissionManagerImplTests.newMission(1, 2, false);
+        Mission mission = MissionManagerImplTests.newMission("m2",1, 2, false);
         Hero hero = HeroManagerImplTests.newHero("Dragon", 2);
 
         manager.sendHeroToMission(hero, mission);
@@ -71,7 +71,7 @@ public class CampaignManagerImplTests {
 
     @Test (expected = IllegalStateException.class)
     public void sendHeroToFullMission () {
-        Mission mission = MissionManagerImplTests.newMission(0, 2, false);
+        Mission mission = MissionManagerImplTests.newMission("m2",0, 2, false);
         Hero hero = HeroManagerImplTests.newHero("Dragon", 2);
 
         manager.sendHeroToMission(hero, mission);
@@ -79,7 +79,7 @@ public class CampaignManagerImplTests {
 
     @Test (expected = IllegalStateException.class)
     public void sendHeroToMissionWithNotRequiredLevel() {
-        Mission mission = MissionManagerImplTests.newMission(0, 2, false);
+        Mission mission = MissionManagerImplTests.newMission("m2",0, 2, false);
         Hero hero = HeroManagerImplTests.newHero("Dragon", 5);
 
         manager.sendHeroToMission(hero, mission);

@@ -6,6 +6,7 @@ package campaignmanager;
 public class Mission {
 
     private Long id;
+    private String mission_name;
     private int levelRequired;
     private int capacity;
     private boolean available;
@@ -17,6 +18,14 @@ public class Mission {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getMission_name() {
+        return mission_name;
+    }
+
+    public void setMission_name(String mission_name) {
+        this.mission_name = mission_name;
     }
 
     public int getLevelRequired() {
@@ -61,6 +70,12 @@ public class Mission {
 
     @Override
     public String toString() {
-        return "campaignmanager.Mission{" + "id=" + id + '}';
+        return "Mission{" +
+                "id=" + id +
+                ", mission_name='" + mission_name + '\'' +
+                ", levelRequired=" + levelRequired +
+                ", capacity=" + capacity +
+                ", available=" + available +
+                '}';
     }
 }

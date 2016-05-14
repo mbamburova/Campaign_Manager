@@ -17,12 +17,12 @@ public class MainWindow extends javax.swing.JFrame {
     private JButton viewAllButton;
     private JButton viewAvailableButton;
     private JTable MissionTable;
-    private JTable table1;
     private JTextField textField1;
     private JTextField textField2;
     private JButton createButton;
     private JTextField textField3;
     private JButton searchButton;
+    private JTable table1;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní

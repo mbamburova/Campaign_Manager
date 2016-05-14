@@ -1,7 +1,5 @@
 import campaignmanager.Mission;
-import campaignmanager.MissionManager;
 import campaignmanager.MissionManagerImpl;
-import common.DBUtils;
 import common.IllegalEntityException;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -9,16 +7,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.sql.DataSource;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class MissionManagerImplTests {
@@ -59,7 +58,7 @@ public class MissionManagerImplTests {
     @Test
     public void createMission() {
 
-        Mission mission = newMission(2, 3, true);
+        Mission mission = newMission("m 1", 2, 3, true);
         
         manager.createMission(mission);
 
@@ -76,7 +75,7 @@ public class MissionManagerImplTests {
     public void findMission() {
         assertNull(manager.findMissionById(1L));
 
-        Mission mission = newMission(5, 4, false);
+        Mission mission = newMission("m 1", 5, 4, false);
         manager.createMission(mission);
         Long missionId = mission.getId();
 
@@ -88,8 +87,8 @@ public class MissionManagerImplTests {
     public void findAllMissions() {
         assertTrue(manager.findAllMission().isEmpty());
 
-        Mission m1 = newMission(5, 4, true);
-        Mission m2 = newMission(4, 2, false);
+        Mission m1 = newMission("m 1", 5, 4, true);
+        Mission m2 = newMission("m 2", 4, 2, false);
 
         manager.createMission(m1);
         manager.createMission(m2);
@@ -110,27 +109,27 @@ public class MissionManagerImplTests {
 
     @Test(expected = IllegalArgumentException.class)
     public void addMissionWithNegativeCapacity() {
-        Mission mission = newMission(2, -1, true);
+        Mission mission = newMission("m 1", 2, -1, true);
 
         manager.createMission(mission);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void addMissionWithNegativeLevel() {
-        Mission mission = newMission(-2, 1, true);
+        Mission mission = newMission("m 1", -2, 1, true);
 
         manager.createMission(mission);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void addMissionWithZeroCapacity() {
-        Mission mission = newMission(2, 0, true);
+        Mission mission = newMission("m 1", 2, 0, true);
         manager.createMission(mission);
     }
 
     @Test(expected = IllegalEntityException.class)
     public void updateMissionSetIdNegative() {
-        Mission mission = newMission(2, 4, true);
+        Mission mission = newMission("m 1", 2, 4, true);
         manager.createMission(mission);
 
         Long missionId = mission.getId();
@@ -143,8 +142,8 @@ public class MissionManagerImplTests {
 
     @Test
     public void updateMission()  {
-        Mission m1 = newMission(5, 4, true);
-        Mission m2 = newMission(4, 3, false);
+        Mission m1 = newMission("m 1", 5, 4, true);
+        Mission m2 = newMission("m 1", 4, 3, false);
         manager.createMission(m1);
         manager.createMission(m2);
 
@@ -191,8 +190,9 @@ public class MissionManagerImplTests {
 
 
 
-    public static Mission newMission(int levelRequired, int capacity, boolean available) {
+    public static Mission newMission(String mission_name, int levelRequired, int capacity, boolean available) {
         Mission mission = new Mission();
+        mission.setMission_name(mission_name);
         mission.setLevelRequired(levelRequired);
         mission.setCapacity(capacity);
         mission.setAvailable(available);
