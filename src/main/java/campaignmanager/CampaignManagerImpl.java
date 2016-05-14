@@ -193,7 +193,7 @@ public class CampaignManagerImpl implements CampaignManager {
         try {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
-                    "SELECT mission.id, level_required, capacity, available " +
+                    "SELECT mission.id, mission_name, level_required, capacity, available " +
                             "FROM Mission JOIN Hero ON Mission.id = Hero.missionId " +
                             "WHERE Hero.id = ?");
             st.setLong(1, hero.getId());

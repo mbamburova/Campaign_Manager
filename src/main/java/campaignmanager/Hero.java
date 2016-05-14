@@ -51,6 +51,10 @@ public class Hero {
 
     @Override
     public String toString() {
-        return "Hero{" + "id=" + id + '}';
+        return "Hero{" +
+                "id=" + id +
+                ", hero_name='" + hero_name + '\'' +
+                ", hero_level=" + hero_level +
+                '}';
     }
 }
