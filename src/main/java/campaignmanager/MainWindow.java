@@ -32,6 +32,7 @@ public class MainWindow extends JFrame {
     private JLabel heroName;
     private JLabel heroLevel;
     private JScrollPane heroTableScrollPane;
+    private JLabel heroesOfTheTavernLabel;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
