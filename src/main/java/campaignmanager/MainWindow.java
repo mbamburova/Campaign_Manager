@@ -8,13 +8,13 @@ import java.awt.*;
  */
 public class MainWindow extends JFrame {
     private JPanel panel1;
-    private JTabbedPane tabbedPane1;
-    private JTable table1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
+    private JTabbedPane campaignPanel;
+    private JTable heroTable;
+    private JTextField heroLevelTextField;
+    private JTextField heroNameTextField;
+    private JButton heroCreateButton;
+    private JButton heroUpdateButton;
+    private JButton heroDeleteButton;
     private JTable table2;
     private JTextField textField3;
     private JSpinner spinner1;
@@ -26,6 +26,12 @@ public class MainWindow extends JFrame {
     private JTextField textField5;
     private JButton button6;
     private JButton button7;
+    private JPanel heroPanel;
+    private JPanel MissionPanel;
+    private JLabel heroTitle;
+    private JLabel heroName;
+    private JLabel heroLevel;
+    private JScrollPane heroTableScrollPane;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
