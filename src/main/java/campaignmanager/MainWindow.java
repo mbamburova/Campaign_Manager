@@ -4,25 +4,34 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by Michaela Bamburová on 23.04.2016.
+ * Created by Anonym on 14. 5. 2016.
  */
-public class MainWindow extends javax.swing.JFrame {
-
-
-    private JPanel Mission;
-    private JPanel Hero;
-    private JCheckBox availableCheckBox;
+public class MainWindow extends JFrame {
+    private JPanel panel1;
+    private JTabbedPane campaignPanel;
+    private JTable heroTable;
+    private JTextField heroLevelTextField;
+    private JTextField heroNameTextField;
+    private JButton heroCreateButton;
+    private JButton heroUpdateButton;
+    private JButton heroDeleteButton;
+    private JTable table2;
+    private JTextField textField3;
     private JSpinner spinner1;
     private JSpinner spinner2;
-    private JButton viewAllButton;
-    private JButton viewAvailableButton;
-    private JTable MissionTable;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JButton createButton;
-    private JTextField textField3;
-    private JButton searchButton;
-    private JTable table1;
+    private JCheckBox checkBox1;
+    private JButton button4;
+    private JButton button5;
+    private JTextField textField4;
+    private JTextField textField5;
+    private JButton button6;
+    private JButton button7;
+    private JPanel heroPanel;
+    private JPanel MissionPanel;
+    private JLabel heroTitle;
+    private JLabel heroName;
+    private JLabel heroLevel;
+    private JScrollPane heroTableScrollPane;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
@@ -32,13 +41,5 @@ public class MainWindow extends javax.swing.JFrame {
                     frame.setVisible(true);
                 }
         );
-
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-
-
     }
 }
-
