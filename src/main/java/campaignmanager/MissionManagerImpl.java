@@ -3,10 +3,10 @@ import common.DBUtils;
 import common.IllegalEntityException;
 import common.ServiceFailureException;
 
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import javax.sql.DataSource;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,12 +30,6 @@ public class MissionManagerImpl implements MissionManager {
             throw new IllegalStateException("DataSource is not set");
         }
     }
-
-        /*
-    private int levelRequired;
-    private int capacity;
-    private boolean available;
-     */
 
     @Override
     public void createMission(Mission mission) {

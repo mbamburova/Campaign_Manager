@@ -19,8 +19,7 @@ public class MainWindow extends javax.swing.JFrame {
     private JButton viewAvailableButton;
     private JTable MissionTable;
     private JTable HeroTable;
-    private JButton viewAllButton2;
-    private JButton searchByNameButton;
+    private JButton deleteButton;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
