@@ -1,14 +1,12 @@
 package campaignmanager;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by Anonym on 14. 5. 2016.
  */
 public class MainWindow extends JFrame {
 
-    //this is a change!!!
     private JPanel panel1;
     private JTabbedPane campaignPanel;
     private JTable heroTable;
@@ -53,13 +51,12 @@ public class MainWindow extends JFrame {
     private JComboBox missionNameComboBox;
     private JButton leaveMissionButton;
 
+
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> { // zde použito funcionální rozhraní
-                    JFrame frame = new JFrame();
-                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    frame.setTitle("Campaign Manager");
-                    frame.setVisible(true);
-                }
-        );
+        JFrame frame = new JFrame("MainWindow");
+        frame.setContentPane(new MainWindow().panel1);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
     }
 }
