@@ -1,11 +1,11 @@
-package campaignmanager;
+package campaignmanager.app;
 
 import javax.swing.*;
 
 /**
  * Created by Anonym on 14. 5. 2016.
  */
-public class MainWindow extends JFrame {
+public class App extends JFrame {
 
     private JPanel panel1;
     private JTabbedPane campaignPanel;
@@ -27,7 +27,7 @@ public class MainWindow extends JFrame {
     private JButton button6;
     private JButton button7;
     private JPanel heroPanel;
-    private JPanel MissionPanel;
+    private JPanel missionPanel;
     private JLabel heroTitle;
     private JLabel heroName;
     private JLabel heroLevel;
@@ -50,11 +50,15 @@ public class MainWindow extends JFrame {
     private JComboBox heroNameComboBox;
     private JComboBox missionNameComboBox;
     private JButton leaveMissionButton;
+    private JLabel heroFateName;
+    private JLabel missionFateName;
+    private JLabel fateText;
+    private JLabel missionManagText;
 
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("MainWindow");
-        frame.setContentPane(new MainWindow().panel1);
+        JFrame frame = new JFrame("Campaign manager");
+        frame.setContentPane(new App().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
