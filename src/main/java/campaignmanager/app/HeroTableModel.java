@@ -73,7 +73,7 @@ public class HeroTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         switch(column) {
             case 0:
-                return bundle.getString("id");
+                return bundle.getString("Hero.id");
             case 1:
                 return bundle.getString("Hero.name");
             case 2:
@@ -88,9 +88,14 @@ public class HeroTableModel extends AbstractTableModel {
         heroList = heroManager.findAllHeroes();
     }
 
-
-
-
-
-
+    public void update(Hero hero) {
+        int i;
+        for (i = 0; i < heroList.size() - 1; i++) {
+            if (heroList.get(i).getId() == hero.getId()) {
+                break;
+            }
+        }
+        heroList.set(i, hero);
+        fireTableRowsUpdated(i, i);
+    }
 }

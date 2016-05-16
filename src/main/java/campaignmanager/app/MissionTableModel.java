@@ -74,7 +74,7 @@ public class MissionTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         switch(column) {
             case 0:
-                return bundle.getString("id");
+                return bundle.getString("Mission.id");
             case 1:
                 return bundle.getString("Mission.name");
             case 2:
