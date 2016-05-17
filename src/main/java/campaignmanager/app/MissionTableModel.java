@@ -1,13 +1,17 @@
 package campaignmanager.app;
 
-import campaignmanager.Mission;
-import campaignmanager.MissionManager;
-import campaignmanager.MissionManagerImpl;
+import campaignmanager.*;
+import common.ValidationException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Michaela Bamburová on 16.05.2016.
@@ -16,12 +20,16 @@ public class MissionTableModel extends AbstractTableModel {
 
     private final MissionManager missionManager;
     private final ResourceBundle bundle;
-    private List<Mission> missionList;
+    private List<Mission> missionList = new ArrayList<>();
+    private ReadAllSwingWorker readWorker;
+    final static Logger log = LoggerFactory.getLogger(MissionTableModel.class);
+    private JOptionPane dialog;
 
-    public MissionTableModel() {
-        missionManager = new MissionManagerImpl(); //????
+    public MissionTableModel(MissionManager missionManager) {
+        this.missionManager = missionManager;
         bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
-        missionList = missionManager.findAllMission();
+        readWorker = new ReadAllSwingWorker(missionManager);
+        readWorker.execute();
     }
 
 
@@ -74,28 +82,134 @@ public class MissionTableModel extends AbstractTableModel {
     public String getColumnName(int column) {
         switch(column) {
             case 0:
-                return bundle.getString("Mission.id");
+                return bundle.getString("ID");
             case 1:
-                return bundle.getString("Mission.name");
+                return bundle.getString("NAME");
             case 2:
-                return bundle.getString("Mission.capacity");
+                return bundle.getString("CAPACITY");
             case 3:
-                return bundle.getString("Mission.levelRequired");
+                return bundle.getString("LEVEL REQUIRED");
             case 4:
-                return bundle.getString("Mission.available");
+                return bundle.getString("AVAILABLE");
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
     }
 
-    public void update(Mission mission) {
-        int i;
-        for (i = 0; i < missionList.size() - 1; i++) {
-            if (missionList.get(i).getId().equals(mission.getId())) {
-                break;
+    private class ReadAllSwingWorker extends SwingWorker<List<Mission>,Void> {
+        private final MissionManager missionManager;
+
+        public ReadAllSwingWorker(MissionManager manager) {
+            missionManager = manager;
+        }
+
+        @Override
+        protected List<Mission> doInBackground() throws Exception {
+            return missionManager.findAllMission();
+        }
+
+        @Override
+        protected void done() {
+            try {
+                missionList = get();
+                fireTableDataChanged();
+            } catch (InterruptedException | ExecutionException e) {
+                log.error("Exception: ", e);
             }
         }
-        missionList.set(i, mission);
-        fireTableRowsUpdated(i, i);
     }
+
+    private class AddSwingWorker extends SwingWorker<Void, Void> {
+
+        private final MissionManager missionManager;
+        private final Mission mission;
+
+        public AddSwingWorker(MissionManager missionManager, Mission mission) {
+            this.missionManager = missionManager;
+            this.mission = mission;
+        }
+
+        @Override
+        protected Void doInBackground() throws ValidationException {
+            missionManager.createMission(mission);
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            try {
+                get();
+                missionList.add(mission);
+                int lastRow = missionList.size() - 1;
+                fireTableRowsInserted(lastRow, lastRow);
+            } catch (InterruptedException | ExecutionException e) {
+                log.error("Adding mission failed: " + e.getCause().getMessage());
+                JOptionPane.showMessageDialog(dialog, e.getCause().getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            log.info("Mission added successfully.");
+        }
+    }
+
+    private class UpdateSwingWorker extends SwingWorker <Void, Void> {
+
+        private final MissionManager missionManager;
+        private final Mission mission;
+        private final int row;
+
+        public UpdateSwingWorker(MissionManager missionManager, Mission mission, int row) {
+            this.missionManager = missionManager;
+            this.mission = mission;
+            this.row = row;
+        }
+
+
+        @Override
+        protected Void doInBackground() throws Exception {
+            missionManager.updateMission(mission);
+            return null;
+        }
+
+        @Override
+        protected void done() {
+            try {
+                get();
+                refreshTable();
+            } catch (InterruptedException | ExecutionException e) {
+                log.error("Updating mission failed: " + e.getCause().getMessage());
+                JOptionPane.showMessageDialog(dialog, e.getCause().getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            log.info("Mission updated successfully.");
+        }
+    }
+
+    public List<Mission> getList() {
+        return missionList;
+    }
+
+    public void setList(List<Mission> list) {
+        missionList = list;
+    }
+
+    private AddSwingWorker addWorker;
+    private UpdateSwingWorker updateWorker;
+    //private FilterSwingWorker filterWorker;
+
+
+    public void addRow(Mission mission) {
+        addWorker = new AddSwingWorker(missionManager, mission);
+        addWorker.execute();
+    }
+
+    public void refreshTable() {
+        readWorker = new ReadAllSwingWorker(missionManager);
+        readWorker.execute();
+    }
+
+    public void updateRow(Mission mission, int row) throws ValidationException {
+        updateWorker = new UpdateSwingWorker(missionManager, mission, row);
+        updateWorker.execute();
+    }
+
 }
