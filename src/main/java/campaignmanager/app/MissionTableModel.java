@@ -37,6 +37,7 @@ public class MissionTableModel extends AbstractTableModel {
         return missionManager;
     }
 
+    
     public ResourceBundle getBundle() {
         return bundle;
     }
