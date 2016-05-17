@@ -16,6 +16,7 @@
         </constraints>
         <properties>
           <font/>
+          <name resource-bundle="Bundle" key="HERO"/>
         </properties>
         <border type="none"/>
         <children>
@@ -81,7 +82,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Name"/>
+                      <text resource-bundle="Bundle" key="NAME"/>
                     </properties>
                   </component>
                   <component id="a3aca" class="javax.swing.JLabel" binding="heroLevel">
@@ -92,7 +93,7 @@
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
                       <maximumSize width="52" height="20"/>
-                      <text value="Level"/>
+                      <text resource-bundle="Bundle" key="LEVEL"/>
                     </properties>
                   </component>
                   <component id="3b6af" class="javax.swing.JTextField" binding="heroLevelTextField">
@@ -123,7 +124,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Create"/>
+                      <text resource-bundle="Bundle" key="CREATE"/>
                     </properties>
                   </component>
                   <component id="86e58" class="javax.swing.JButton" binding="heroUpdateButton">
@@ -132,7 +133,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Update"/>
+                      <text resource-bundle="Bundle" key="UPDATE"/>
                     </properties>
                   </component>
                   <component id="3b231" class="javax.swing.JButton" binding="heroDeleteButton">
@@ -141,7 +142,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Delete"/>
+                      <text resource-bundle="Bundle" key="DELETE"/>
                     </properties>
                   </component>
                   <component id="ba32" class="javax.swing.JLabel" binding="heroTitle">
@@ -151,7 +152,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="20" style="1"/>
-                      <text value="Hero Tavern"/>
+                      <text resource-bundle="Bundle" key="HERO TAVERN"/>
                     </properties>
                   </component>
                   <component id="ee3de" class="javax.swing.JSeparator">
@@ -169,7 +170,7 @@
                 </constraints>
                 <properties>
                   <font name="Harrington" size="18" style="1"/>
-                  <text value="Heroes of the Tavern"/>
+                  <text resource-bundle="Bundle" key="HEROES OF THE TAVERN"/>
                 </properties>
               </component>
             </children>
@@ -179,7 +180,9 @@
             <constraints>
               <tabbedpane title="Mission"/>
             </constraints>
-            <properties/>
+            <properties>
+              <name resource-bundle="Bundle" key="MISSION"/>
+            </properties>
             <border type="none"/>
             <children>
               <scrollpane id="ebf13" binding="missionTableScrollPane">
@@ -233,7 +236,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="20" style="1"/>
-                      <text value="Mission Manager"/>
+                      <text resource-bundle="Bundle" key="MISSION MANAGER"/>
                     </properties>
                   </component>
                   <component id="72160" class="javax.swing.JLabel" binding="levelRequiredLabel">
@@ -243,7 +246,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Level required"/>
+                      <text resource-bundle="Bundle" key="LEVEL REQUIRED"/>
                     </properties>
                   </component>
                   <component id="50d96" class="javax.swing.JTextField" binding="missionNameTextField">
@@ -269,7 +272,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Mission capacity"/>
+                      <text resource-bundle="Bundle" key="MISSION CAPACITY"/>
                     </properties>
                   </component>
                   <component id="c0d0f" class="javax.swing.JSpinner" binding="missionCapacitySpinner">
@@ -295,7 +298,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Available"/>
+                      <text resource-bundle="Bundle" key="AVAILABLE"/>
                     </properties>
                   </component>
                   <component id="229b2" class="javax.swing.JButton" binding="missionCreateButton">
@@ -304,7 +307,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Create"/>
+                      <text resource-bundle="Bundle" key="CREATE"/>
                     </properties>
                   </component>
                   <component id="1e2f2" class="javax.swing.JButton" binding="missionUpdateButton">
@@ -313,7 +316,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Update"/>
+                      <text resource-bundle="Bundle" key="UPDATE"/>
                     </properties>
                   </component>
                   <component id="97301" class="javax.swing.JLabel" binding="missionName">
@@ -323,7 +326,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Name"/>
+                      <text resource-bundle="Bundle" key="NAME"/>
                     </properties>
                   </component>
                 </children>
@@ -369,7 +372,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="20" style="1"/>
-                      <text value="The fate is calling"/>
+                      <text resource-bundle="Bundle" key="THE FATE IS CALLING"/>
                     </properties>
                   </component>
                   <component id="b86ee" class="javax.swing.JLabel" binding="heroFateName">
@@ -379,7 +382,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Hero"/>
+                      <text resource-bundle="Bundle" key="HERO"/>
                     </properties>
                   </component>
                   <component id="c0353" class="javax.swing.JLabel" binding="missionFateName">
@@ -389,7 +392,7 @@
                     </constraints>
                     <properties>
                       <font name="Harrington" size="16" style="1"/>
-                      <text value="Mission"/>
+                      <text resource-bundle="Bundle" key="MISSION"/>
                     </properties>
                   </component>
                   <component id="847a7" class="javax.swing.JButton" binding="sendToMissionButton" default-binding="true">
@@ -398,7 +401,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Send to mission"/>
+                      <text resource-bundle="Bundle" key="SEND TO MISSION"/>
                     </properties>
                   </component>
                   <component id="5109b" class="javax.swing.JComboBox" binding="heroNameComboBox">
@@ -425,7 +428,7 @@
                       <forms/>
                     </constraints>
                     <properties>
-                      <text value="Leave mission"/>
+                      <text resource-bundle="Bundle" key="LEAVE MISSION"/>
                     </properties>
                   </component>
                 </children>
@@ -443,7 +446,7 @@
                 <properties>
                   <enabled value="true"/>
                   <font name="Harrington" size="18" style="1"/>
-                  <text value="Tavern Missions"/>
+                  <text resource-bundle="Bundle" key="TAVERN MISSIONS"/>
                 </properties>
               </component>
             </children>

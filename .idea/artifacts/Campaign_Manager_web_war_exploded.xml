@@ -14,8 +14,7 @@
           <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
           <element id="library" level="project" name="Maven: org.apache.derby:derby:10.12.1.1" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.0.1" />
-          <element id="library" level="project" name="Maven: com.jgoodies:jgoodies-forms:1.6.0" />
-          <element id="library" level="project" name="Maven: com.jgoodies:jgoodies-common:1.4.0" />
+          <element id="library" level="project" name="Maven: com.jgoodies:forms:1.2.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
