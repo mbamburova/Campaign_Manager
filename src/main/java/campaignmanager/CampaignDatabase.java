@@ -1,31 +1,37 @@
 package campaignmanager;
 
 import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.apache.ibatis.jdbc.ScriptRunner;
 
 import javax.sql.DataSource;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.sql.Connection;
 import java.sql.SQLException;
 
-
-/**
- * Created by Michaela Bamburová on 18.04.2016.
- */
 public class CampaignDatabase {
 
-    public static void main(String[]args) throws SQLException, FileNotFoundException {
-        EmbeddedDataSource embeddedDataSource = new EmbeddedDataSource();
-        embeddedDataSource.setUser("user");
+    private DataSource dataSource;
 
-    }
+    public DataSource setUpDatabase() {
+        try {
+            dataSource = CampaignDatabase.prepareDataSource();
+            Connection connection = dataSource.getConnection();
+            ScriptRunner scriptRunner = new ScriptRunner(connection);
+            scriptRunner.runScript(new BufferedReader(new FileReader("src\\main\\resources\\create_table.sql")));
+            scriptRunner.runScript(new BufferedReader(new FileReader("src\\main\\resources\\test_data.sql")));
+        } catch (FileNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
 
-
-    public static DataSource prepareDataSource() throws SQLException {
-        EmbeddedDataSource dataSource = new EmbeddedDataSource();
-        //we will use in memory database
-        dataSource.setDatabaseName("memory:heroManagerImpl-test");
-        dataSource.setCreateDatabase("create");
         return dataSource;
     }
 
-
+    public static EmbeddedDataSource prepareDataSource() throws SQLException {
+        EmbeddedDataSource embeddedDataSource = new EmbeddedDataSource();
+        embeddedDataSource.setDatabaseName("memory:campaign-database");
+        embeddedDataSource.setCreateDatabase("create");
+        return embeddedDataSource;
+    }
 }

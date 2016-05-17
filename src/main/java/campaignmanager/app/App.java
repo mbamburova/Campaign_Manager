@@ -1,8 +1,11 @@
 package campaignmanager.app;
 
+import campaignmanager.CampaignDatabase;
 import campaignmanager.Hero;
 import campaignmanager.HeroManagerImpl;
+import org.slf4j.LoggerFactory;
 
+import javax.sql.DataSource;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +16,6 @@ import java.awt.event.MouseEvent;
  * Created by Anonym on 14. 5. 2016.
  */
 public class App extends JFrame {
-
 
     private JPanel panel1;
     private JTabbedPane campaignPanel;
@@ -63,12 +65,18 @@ public class App extends JFrame {
     private JLabel fateText;
     private JLabel missionManagText;
     private HeroManagerImpl heroManager = new HeroManagerImpl();
+    private DataSource dataSource;
+    private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
 
 
     public App() {
 
 
-
+        dataSource = new CampaignDatabase().setUpDatabase();
+        heroManager.setDataSource(dataSource);
+        heroTable.setModel(new HeroTableModel(heroManager));
+        missionLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 20, 1));
+        missionCapacitySpinner.setModel(new SpinnerNumberModel(1, 1, 12, 1));
 
         heroCreateButton.addActionListener(new ActionListener() {
             @Override
@@ -91,6 +99,7 @@ public class App extends JFrame {
                 hero.setName(heroNameTextField.getText());
                 hero.setLevel(Integer.parseInt(heroLevelTextField.getText()));
                 model.updateRow(hero, selectedRow);
+                defaultHeroSettings();
             }
         });
 
@@ -98,9 +107,11 @@ public class App extends JFrame {
         heroDeleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                log.info("Deleting hero...");
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 model.removeRow(heroTable.getSelectedRow());
-
+                defaultHeroSettings();
             }
         });
 
@@ -108,18 +119,36 @@ public class App extends JFrame {
         heroTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                int selectedRow = heroTable.getSelectedRow();
+                int selectedRow = heroTable.rowAtPoint(e.getPoint());
+                HeroTableModel model = (HeroTableModel) heroTable.getModel();
+                heroNameTextField.setText(model.getValueAt(selectedRow, 1).toString());
+                heroLevelTextField.setText(model.getValueAt(selectedRow, 2).toString());
+
+                heroUpdateButton.setEnabled(true);
+                heroDeleteButton.setEnabled(true);
+                heroCreateButton.setEnabled(false);
+
                 super.mouseClicked(e);
             }
         });
     }
 
+    public void defaultHeroSettings() {
+
+        heroCreateButton.setEnabled(true);
+        heroUpdateButton.setEnabled(false);
+        heroDeleteButton.setEnabled(false);
+
+        heroLevelTextField.setText("");
+        heroNameTextField.setText("");
+
+    }
 
     public static void main(String[] args) {
 
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
