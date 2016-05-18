@@ -11,3 +11,4 @@ CREATE TABLE mission (
     capacity INT,
     available BOOLEAN
 );
+
