@@ -162,7 +162,27 @@ public class MissionManagerImpl implements MissionManager {
                     "SELECT id, mission_name, level_required, capacity, available FROM Mission");
             return executeQueryForMultipleMissions(st);
         } catch (SQLException ex) {
-            String msg = "Error when getting all bodies from DB";
+            String msg = "Error when getting all missions from DB";
+            logger.log(Level.SEVERE, msg, ex);
+            throw new ServiceFailureException(msg, ex);
+        } finally {
+            DBUtils.closeQuietly(conn, st);
+        }
+    }
+
+    @Override
+    public List<Mission> viewAvailableMissions() {
+        checkDataSource();
+        Connection conn = null;
+        PreparedStatement st = null;
+
+        try {
+            conn = dataSource.getConnection();
+            st = conn.prepareStatement(
+                    "SELECT id, mission_name, level_required, capacity, available FROM Mission WHERE available = 1");
+            return executeQueryForMultipleMissions(st);
+        } catch (SQLException ex) {
+            String msg = "Error when getting all missions from DB";
             logger.log(Level.SEVERE, msg, ex);
             throw new ServiceFailureException(msg, ex);
         } finally {

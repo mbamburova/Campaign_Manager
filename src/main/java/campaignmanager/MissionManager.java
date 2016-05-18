@@ -32,4 +32,8 @@ public interface MissionManager {
      */
     List<Mission> findAllMission();
 
+
+    List<Mission> viewAvailableMissions();
+
+
 }
