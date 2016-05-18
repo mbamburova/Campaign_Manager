@@ -1,7 +1,5 @@
 package campaignmanager;
 
-import common.ServiceFailureException;
-
 import java.util.List;
 
 /**
@@ -39,4 +37,7 @@ public interface HeroManager {
      * @return
      */
     List<Hero> findAllHeroes();
+
+
+    List<Hero> viewFreeHeroes();
 }

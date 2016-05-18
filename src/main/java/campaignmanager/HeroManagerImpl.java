@@ -5,14 +5,10 @@ import common.IllegalEntityException;
 import common.ServiceFailureException;
 import common.ValidationException;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javax.sql.DataSource;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.*;
-import javax.sql.DataSource;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -56,6 +52,26 @@ public class HeroManagerImpl implements HeroManager {
         }
     }
 
+    @Override
+    public List<Hero> viewFreeHeroes() {
+        checkDataSource();
+        Connection conn = null;
+        PreparedStatement st = null;
+
+        try {
+            conn = dataSource.getConnection();
+            st = conn.prepareStatement(
+                    "SELECT id, hero_name, hero_level FROM hero WHERE missionId IS NULL ");
+            return executeQueryForMultipleHeroes(st);
+        } catch (SQLException ex) {
+            String msg = "Error when getting all heroes from DB";
+            logger.log(Level.SEVERE, msg, ex);
+            throw new ServiceFailureException(msg, ex);
+        } finally {
+            DBUtils.closeQuietly(conn, st);
+        }
+    }
+
     static List<Hero> executeQueryForMultipleHeroes(PreparedStatement st) throws SQLException {
         ResultSet rs = st.executeQuery();
         List<Hero> result = new ArrayList<Hero>();
@@ -73,8 +89,6 @@ public class HeroManagerImpl implements HeroManager {
         return result;
     }
 
-
-
     private void validate(Hero hero) throws ValidationException {
         if (hero == null) {
             throw new ValidationException("hero is null");
@@ -89,7 +103,6 @@ public class HeroManagerImpl implements HeroManager {
         }
     }
 
-
     @Override
     public Hero findHeroById(Long id) {
 
@@ -98,7 +111,6 @@ public class HeroManagerImpl implements HeroManager {
         if (id == null) {
             throw new IllegalArgumentException("id is null");
         }
-
         Connection conn = null;
         PreparedStatement st = null;
         try {
