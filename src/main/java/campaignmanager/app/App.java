@@ -62,6 +62,9 @@ public class App extends JFrame {
     private JLabel missionFateName;
     private JLabel fateText;
     private JLabel missionManagText;
+    private JButton viewAvailableMissionsButton;
+    private JButton viewFreeHeroesButton;
+    private JComboBox comboBox1;
     private HeroManagerImpl heroManager = new HeroManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();
     private DataSource dataSource;
