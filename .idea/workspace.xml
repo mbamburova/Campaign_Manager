@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95217c72-c539-4971-b2e9-ac4a2abbbec5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/campaignmanager/MissionManagerImpl.class" afterPath="$PROJECT_DIR$/target/classes/campaignmanager/MissionManagerImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.form" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/app/MissionTableModel.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/app/MissionTableModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/create_table.sql" afterPath="$PROJECT_DIR$/src/main/resources/create_table.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Campaign_Manager_web/Campaign_Manager_web.iml" afterPath="$PROJECT_DIR$/../Campaign_Manager_web/Campaign_Manager_web.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Campaign_Manager_web/pom.xml" afterPath="$PROJECT_DIR$/../Campaign_Manager_web/pom.xml" />
@@ -42,10 +40,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="App.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.form">
-          <provider selected="true" editor-type-id="ui-designer">
-            <state />
+      <file leaf-file-name="CampaignManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -61,14 +62,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java">
+      <file leaf-file-name="HeroManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2009">
-              <caret line="175" column="96" selection-start-line="175" selection-start-column="96" selection-end-line="175" selection-end-column="96" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="561">
+              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MissionManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,34 +85,42 @@
       <file leaf-file-name="MissionManagerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2941">
-              <caret line="184" column="59" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
+            <state relative-caret-position="134">
+              <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
               <folding>
-                <marker date="1463594277644" expanded="true" signature="1392:1478" ph="INSERT INTO Mission... " />
-                <marker date="1463594277644" expanded="true" signature="2799:2896" ph="UPDATE Missi... " />
-                <marker date="1463594277644" expanded="true" signature="4033:4119" ph="SELECT id, m... Mission" />
-                <marker date="1463594277644" expanded="true" signature="5322:5395" ph="SELECT id, m... Mission" />
+                <marker date="1463601231586" expanded="true" signature="1392:1478" ph="INSERT INTO Mission... " />
+                <marker date="1463601231586" expanded="true" signature="2799:2896" ph="UPDATE Missi... " />
+                <marker date="1463601231586" expanded="true" signature="4033:4119" ph="SELECT id, m... Mission" />
+                <marker date="1463601231586" expanded="true" signature="5322:5395" ph="SELECT id, m... Mission" />
+                <marker date="1463601231586" expanded="true" signature="6027:6100" ph="SELECT id, m... Mission" />
+                <marker date="1463601231586" expanded="true" signature="6027:6120" ph="SELECT id, m... Mission" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CampaignManager.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManager.java">
+      <file leaf-file-name="Mission.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/Mission.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+            <state relative-caret-position="34">
+              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeroManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java">
+      <file leaf-file-name="CampaignManagerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="378">
+              <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
+              <folding>
+                <marker date="1463248125308" expanded="true" signature="1889:1953" ph="UPDATE Hero " />
+                <marker date="1463248125308" expanded="true" signature="2942:3194" ph="SELECT capac... Mission" />
+                <marker date="1463248125308" expanded="true" signature="4644:4707" ph="UPDATE Hero " />
+                <marker date="1463248125308" expanded="true" signature="5829:6007" ph="SELECT Hero.... Hero" />
+                <marker date="1463248125308" expanded="true" signature="6977:7183" ph="SELECT missi... Mission" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -111,28 +128,8 @@
       <file leaf-file-name="create_table.sql" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/create_table.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Hero.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/Hero.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_data.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/test_data.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="89" selection-start-line="6" selection-start-column="89" selection-end-line="6" selection-end-column="89" />
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -141,15 +138,28 @@
       <file leaf-file-name="HeroManagerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
+            <state relative-caret-position="1411">
+              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
               <folding>
-                <marker date="1463248125309" expanded="true" signature="1219:1261" ph="SELECT id, h... hero" />
-                <marker date="1463248125309" expanded="true" signature="2941:2996" ph="SELECT id, h... Hero" />
-                <marker date="1463248125309" expanded="true" signature="4447:4499" ph="INSERT INTO Hero... " />
-                <marker date="1463248125309" expanded="true" signature="5758:5816" ph="UPDATE Hero " />
-                <marker date="1463248125309" expanded="true" signature="7055:7084" ph="DELETE FROM " />
+                <marker date="1463601844123" expanded="true" signature="1100:1142" ph="SELECT id, h... hero" />
+                <marker date="1463601844123" expanded="true" signature="1760:1808" ph="SELECT id, h... hero" />
+                <marker date="1463601844123" expanded="true" signature="1760:1818" ph="SELECT id, h... hero" />
+                <marker date="1463601844123" expanded="true" signature="1760:1826" ph="SELECT id, h... hero" />
+                <marker date="1463601844123" expanded="true" signature="3503:3558" ph="SELECT id, h... Hero" />
+                <marker date="1463601844123" expanded="true" signature="5009:5061" ph="INSERT INTO Hero... " />
+                <marker date="1463601844123" expanded="true" signature="6320:6378" ph="UPDATE Hero " />
+                <marker date="1463601844123" expanded="true" signature="7617:7646" ph="DELETE FROM " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ValidationException.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/common/ValidationException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,7 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/HeroManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/EntityNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/main/java/HeroManagerImpl.java" />
         <option value="$PROJECT_DIR$/campaignvemanager.iml" />
@@ -204,9 +213,7 @@
         <option value="$PROJECT_DIR$/src/main/java/common/DBUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/MissionManagerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/ServiceFailureException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java" />
         <option value="$PROJECT_DIR$/src/test/java/HeroBuilder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/Mission.java" />
         <option value="$PROJECT_DIR$/src/main/resources/drop_table.sql" />
         <option value="$PROJECT_DIR$/src/test/java/CampaignManagerImplTests.java" />
@@ -214,14 +221,12 @@
         <option value="$PROJECT_DIR$/.idea/.name" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/derby.log" />
-        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/Hero.java" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/WEB-INF/jsp/campaign/list.jsp" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/WEB-INF/index.html" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/WEB-INF/jsp/hero/index.jsp" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/WEB-INF/jsp/hero/list.jsp" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/META-INF/context.xml" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/list.jsp" />
         <option value="$PROJECT_DIR$/../Campaign_Manager_web/src/main/java/campaignmanager/HeroController.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManagerImpl.java" />
@@ -241,9 +246,14 @@
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/app/MissionTableModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.form" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/test_data.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/Hero.java" />
         <option value="$PROJECT_DIR$/src/main/resources/create_table.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/test_data.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java" />
       </list>
     </option>
   </component>
@@ -432,6 +442,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1299,7 +1313,7 @@
       <workItem from="1463520020949" duration="4249000" />
       <workItem from="1463525411583" duration="403000" />
       <workItem from="1463588515203" duration="596000" />
-      <workItem from="1463590484031" duration="4838000" />
+      <workItem from="1463590484031" duration="11288000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaa">
       <created>1459443339789</created>
@@ -1420,7 +1434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463496522488</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="app almost done">
+      <created>1463595369048</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1463595369048</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1456,7 +1477,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217766000" />
+    <option name="totallyTimeSpent" value="224216000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -1472,7 +1493,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08453838" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.055679288" sideWeight="0.494705" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3429844" sideWeight="0.494705" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1560,7 +1581,8 @@
     <MESSAGE value="HeroTableModel almost done&#10;" />
     <MESSAGE value="MissionTableModel done&#10;&#10;" />
     <MESSAGE value="internacionalizacia" />
-    <option name="LAST_COMMIT_MESSAGE" value="internacionalizacia" />
+    <MESSAGE value="app almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="app almost done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1573,7 +1595,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/index.jsp" />
     <entry file="file://$PROJECT_DIR$/../Campaign_Manager_web/src/main/webapp/list.jsp" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_65/src.zip!/com/sun/org/apache/xerces/internal/parsers/XML11Configuration.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_65/src.zip!/java/lang/System.java" />
@@ -1667,13 +1688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="58" column="38" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/common/DBUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1745,13 +1759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/common/ValidationException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="74" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Campaign_Manager_web/src/main/resources/test_data.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1800,62 +1807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/Mission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-          <folding>
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="101" selection-start-line="22" selection-start-column="101" selection-end-line="22" selection-end-column="101" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="52" column="55" selection-start-line="52" selection-start-column="55" selection-end-line="52" selection-end-column="55" />
-          <folding>
-            <marker date="1463248125309" expanded="true" signature="1219:1261" ph="SELECT id, h... hero" />
-            <marker date="1463248125309" expanded="true" signature="2941:2996" ph="SELECT id, h... Hero" />
-            <marker date="1463248125309" expanded="true" signature="4447:4499" ph="INSERT INTO Hero... " />
-            <marker date="1463248125309" expanded="true" signature="5758:5816" ph="UPDATE Hero " />
-            <marker date="1463248125309" expanded="true" signature="7055:7084" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2941">
-          <caret line="184" column="59" selection-start-line="184" selection-start-column="59" selection-end-line="184" selection-end-column="59" />
-          <folding>
-            <marker date="1463594277644" expanded="true" signature="1392:1478" ph="INSERT INTO Mission... " />
-            <marker date="1463594277644" expanded="true" signature="2799:2896" ph="UPDATE Missi... " />
-            <marker date="1463594277644" expanded="true" signature="4033:4119" ph="SELECT id, m... Mission" />
-            <marker date="1463594277644" expanded="true" signature="5322:5395" ph="SELECT id, m... Mission" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2009">
@@ -1877,42 +1828,146 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/CampaignManagerImplTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        <state relative-caret-position="-323">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/Hero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="391">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="e#195#196#0" expanded="true" />
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#345#346#0" expanded="true" />
+            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#937#938#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/test_data.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="89" selection-start-line="6" selection-start-column="89" selection-end-line="6" selection-end-column="89" />
+        <state relative-caret-position="289">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="101" selection-start-line="22" selection-start-column="101" selection-end-line="22" selection-end-column="101" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
+          <folding>
+            <marker date="1463248125308" expanded="true" signature="1889:1953" ph="UPDATE Hero " />
+            <marker date="1463248125308" expanded="true" signature="2942:3194" ph="SELECT capac... Mission" />
+            <marker date="1463248125308" expanded="true" signature="4644:4707" ph="UPDATE Hero " />
+            <marker date="1463248125308" expanded="true" signature="5829:6007" ph="SELECT Hero.... Hero" />
+            <marker date="1463248125308" expanded="true" signature="6977:7183" ph="SELECT missi... Mission" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/Mission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/create_table.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/MissionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+        <state relative-caret-position="595">
+          <caret line="35" column="27" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+          <folding>
+            <marker date="1463601231586" expanded="true" signature="1392:1478" ph="INSERT INTO Mission... " />
+            <marker date="1463601231586" expanded="true" signature="2799:2896" ph="UPDATE Missi... " />
+            <marker date="1463601231586" expanded="true" signature="4033:4119" ph="SELECT id, m... Mission" />
+            <marker date="1463601231586" expanded="true" signature="5322:5395" ph="SELECT id, m... Mission" />
+            <marker date="1463601231586" expanded="true" signature="6027:6100" ph="SELECT id, m... Mission" />
+            <marker date="1463601231586" expanded="true" signature="6027:6120" ph="SELECT id, m... Mission" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+          <folding>
+            <marker date="1463601844123" expanded="true" signature="1100:1142" ph="SELECT id, h... hero" />
+            <marker date="1463601844123" expanded="true" signature="1760:1808" ph="SELECT id, h... hero" />
+            <marker date="1463601844123" expanded="true" signature="1760:1818" ph="SELECT id, h... hero" />
+            <marker date="1463601844123" expanded="true" signature="1760:1826" ph="SELECT id, h... hero" />
+            <marker date="1463601844123" expanded="true" signature="3503:3558" ph="SELECT id, h... Hero" />
+            <marker date="1463601844123" expanded="true" signature="5009:5061" ph="INSERT INTO Hero... " />
+            <marker date="1463601844123" expanded="true" signature="6320:6378" ph="UPDATE Hero " />
+            <marker date="1463601844123" expanded="true" signature="7617:7646" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/common/ValidationException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
