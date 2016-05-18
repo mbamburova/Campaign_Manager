@@ -480,7 +480,7 @@
                       <text resource-bundle="Bundle" key="MISSION"/>
                     </properties>
                   </component>
-                  <component id="847a7" class="javax.swing.JButton" binding="sendToMissionButton" default-binding="true">
+                  <component id="847a7" class="javax.swing.JButton" binding="sendButton" default-binding="true">
                     <constraints>
                       <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
@@ -509,7 +509,7 @@
                       <model/>
                     </properties>
                   </component>
-                  <component id="77d09" class="javax.swing.JButton" binding="leaveMissionButton" default-binding="true">
+                  <component id="77d09" class="javax.swing.JButton" binding="leaveButton" default-binding="true">
                     <constraints>
                       <grid row="4" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
