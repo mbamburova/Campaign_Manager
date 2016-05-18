@@ -1,8 +1,6 @@
 package campaignmanager.app;
 
-import campaignmanager.CampaignDatabase;
-import campaignmanager.Hero;
-import campaignmanager.HeroManagerImpl;
+import campaignmanager.*;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
@@ -65,6 +63,7 @@ public class App extends JFrame {
     private JLabel fateText;
     private JLabel missionManagText;
     private HeroManagerImpl heroManager = new HeroManagerImpl();
+    private MissionManagerImpl missionManager = new MissionManagerImpl();
     private DataSource dataSource;
     private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
 
@@ -75,6 +74,8 @@ public class App extends JFrame {
         dataSource = new CampaignDatabase().setUpDatabase();
         heroManager.setDataSource(dataSource);
         heroTable.setModel(new HeroTableModel(heroManager));
+        missionManager.setDataSource(dataSource);
+        missionTable.setModel(new MissionTableModel(missionManager));
         missionLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 20, 1));
         missionCapacitySpinner.setModel(new SpinnerNumberModel(1, 1, 12, 1));
 
@@ -89,7 +90,6 @@ public class App extends JFrame {
             }
         });
 
-
         heroUpdateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,7 +103,6 @@ public class App extends JFrame {
             }
         });
 
-
         heroDeleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,7 +113,6 @@ public class App extends JFrame {
                 defaultHeroSettings();
             }
         });
-
 
         heroTable.addMouseListener(new MouseAdapter() {
             @Override
@@ -131,6 +129,57 @@ public class App extends JFrame {
                 super.mouseClicked(e);
             }
         });
+
+        missionCreateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Mission mission = new Mission();
+                mission.setMission_name(missionNameTextField.getText());
+                if (missionAvailabilityCheckBox.isSelected()) {
+                    mission.setAvailable(true);
+                }
+                else mission.setAvailable(false);
+
+                mission.setCapacity((Integer)missionCapacitySpinner.getValue());
+                mission.setLevelRequired((Integer)missionLevelSpinner.getValue());
+                MissionTableModel model = (MissionTableModel) missionTable.getModel();
+                model.addRow(mission);
+                defaultMissionSettings();
+            }
+        });
+
+        missionUpdateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MissionTableModel model = (MissionTableModel) missionTable.getModel();
+                int selectedRow = missionTable.getSelectedRow();
+                Mission mission = missionManager.findMissionById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
+                mission.setMission_name(missionNameTextField.getText());
+                if (missionAvailabilityCheckBox.isSelected()) {
+                    mission.setAvailable(true);
+                }
+                else mission.setAvailable(false);
+                mission.setCapacity((Integer)missionCapacitySpinner.getValue());
+                mission.setLevelRequired((Integer)missionLevelSpinner.getValue());
+                model.updateRow(mission, selectedRow);
+                defaultMissionSettings();
+            }
+        });
+
+        missionTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int selectedRow = missionTable.rowAtPoint(e.getPoint());
+                MissionTableModel model = (MissionTableModel) missionTable.getModel();
+                missionNameTextField.setText(model.getValueAt(selectedRow, 1).toString());
+                missionLevelSpinner.setValue(Integer.parseInt(model.getValueAt(selectedRow, 2).toString()));
+                missionCapacitySpinner.setValue(Integer.parseInt(model.getValueAt(selectedRow, 3).toString()));
+
+                missionCreateButton.setEnabled(false);
+                missionUpdateButton.setEnabled(true);
+                super.mouseClicked(e);
+            }
+        });
     }
 
     public void defaultHeroSettings() {
@@ -141,7 +190,11 @@ public class App extends JFrame {
 
         heroLevelTextField.setText("");
         heroNameTextField.setText("");
+    }
 
+    public void defaultMissionSettings() {
+        missionCreateButton.setEnabled(true);
+        missionUpdateButton.setEnabled(false);
     }
 
     public static void main(String[] args) {

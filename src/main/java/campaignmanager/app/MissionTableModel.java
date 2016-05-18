@@ -87,9 +87,9 @@ public class MissionTableModel extends AbstractTableModel {
             case 1:
                 return bundle.getString("NAME");
             case 2:
-                return bundle.getString("CAPACITY");
+                return bundle.getString("MISSIONCAPACITY");
             case 3:
-                return bundle.getString("LEVEL REQUIRED");
+                return bundle.getString("LEVELREQUIRED");
             case 4:
                 return bundle.getString("AVAILABLE");
             default:

@@ -182,7 +182,7 @@ public class MissionManagerImpl implements MissionManager {
     static private Mission rowToMission(ResultSet rs) throws SQLException {
         Mission result = new Mission();
         result.setId(rs.getLong("id"));
-        result.setMission_name("mission_name");
+        result.setMission_name(rs.getString("mission_name"));
         result.setLevelRequired(rs.getInt("level_required"));
         result.setCapacity(rs.getInt("capacity"));
         result.setAvailable(rs.getBoolean("available"));
