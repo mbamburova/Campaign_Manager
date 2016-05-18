@@ -65,6 +65,8 @@ public class App extends JFrame {
     private JButton viewAvailableMissionsButton;
     private JButton viewFreeHeroesButton;
     private JComboBox missionListcomboBox;
+    private JButton sendToMissionButton;
+    private JButton leaveMissionButton;
     private HeroManagerImpl heroManager = new HeroManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();
     private DataSource dataSource;
