@@ -42,7 +42,6 @@ public class App extends JFrame {
     private JScrollPane heroTableScrollPane;
     private JLabel heroesOfTheTavernLabel;
     private JScrollPane missionTableScrollPane;
-    private JLabel tavernMissionsLabel;
     private JTable missionTable;
     private JLabel levelRequiredLabel;
     private JTextField missionNameTextField;
@@ -67,6 +66,10 @@ public class App extends JFrame {
     private JComboBox missionListcomboBox;
     private JButton sendToMissionButton;
     private JButton leaveMissionButton;
+    private JComboBox comboBox1;
+    private JButton button1;
+    private JComboBox comboBox2;
+    private JButton button2;
     private HeroManagerImpl heroManager = new HeroManagerImpl();
     private CampaignManagerImpl campaignManager = new CampaignManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();

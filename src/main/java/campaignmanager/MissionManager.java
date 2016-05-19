@@ -35,5 +35,5 @@ public interface MissionManager {
 
     List<Mission> viewAvailableMissions();
 
-
+    List<Mission> viewMissionsForLevel(int level);
 }

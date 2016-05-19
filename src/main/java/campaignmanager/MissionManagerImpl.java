@@ -190,6 +190,26 @@ public class MissionManagerImpl implements MissionManager {
         }
     }
 
+    @Override
+    public List<Mission> viewMissionsForLevel(int level) {
+        checkDataSource();
+        Connection conn = null;
+        PreparedStatement st = null;
+
+        try {
+            conn = dataSource.getConnection();
+            st = conn.prepareStatement(
+                    "SELECT id, mission_name, level_required, capacity, available FROM Mission WHERE level_required <= ?");
+            return executeQueryForMultipleMissions(st);
+        } catch (SQLException ex) {
+            String msg = "Error when getting all missions from DB";
+            logger.log(Level.SEVERE, msg, ex);
+            throw new ServiceFailureException(msg, ex);
+        } finally {
+            DBUtils.closeQuietly(conn, st);
+        }
+    }
+
     static List<Mission> executeQueryForMultipleMissions(PreparedStatement st) throws SQLException {
         ResultSet rs = st.executeQuery();
         List<Mission> result = new ArrayList<Mission>();

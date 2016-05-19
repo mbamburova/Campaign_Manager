@@ -61,7 +61,47 @@ public class HeroManagerImpl implements HeroManager {
         try {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
-                    "SELECT id, hero_name, hero_level FROM hero WHERE missionId IS NULL ");
+                    "SELECT id, hero_name, hero_level FROM hero WHERE missionId IS NULL");
+            return executeQueryForMultipleHeroes(st);
+        } catch (SQLException ex) {
+            String msg = "Error when getting all heroes from DB";
+            logger.log(Level.SEVERE, msg, ex);
+            throw new ServiceFailureException(msg, ex);
+        } finally {
+            DBUtils.closeQuietly(conn, st);
+        }
+    }
+
+    @Override
+    public List<Hero> viewHeroesByLevel(int level) {
+        checkDataSource();
+        Connection conn = null;
+        PreparedStatement st = null;
+
+        try {
+            conn = dataSource.getConnection();
+            st = conn.prepareStatement(
+                    "SELECT id, hero_name, hero_level FROM hero WHERE hero_level = ?");
+            return executeQueryForMultipleHeroes(st);
+        } catch (SQLException ex) {
+            String msg = "Error when getting all heroes from DB";
+            logger.log(Level.SEVERE, msg, ex);
+            throw new ServiceFailureException(msg, ex);
+        } finally {
+            DBUtils.closeQuietly(conn, st);
+        }
+    }
+
+    @Override
+    public List<Hero> viewHeroesByName(String name) {
+        checkDataSource();
+        Connection conn = null;
+        PreparedStatement st = null;
+
+        try {
+            conn = dataSource.getConnection();
+            st = conn.prepareStatement(
+                    "SELECT id, hero_name, hero_level FROM hero WHERE hero_name = ?");
             return executeQueryForMultipleHeroes(st);
         } catch (SQLException ex) {
             String msg = "Error when getting all heroes from DB";

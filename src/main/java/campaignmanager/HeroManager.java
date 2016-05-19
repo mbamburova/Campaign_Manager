@@ -40,4 +40,8 @@ public interface HeroManager {
 
 
     List<Hero> viewFreeHeroes();
+
+    List<Hero> viewHeroesByLevel(int level);
+
+    List<Hero> viewHeroesByName(String name);
 }
