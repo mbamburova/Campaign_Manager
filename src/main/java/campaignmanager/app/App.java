@@ -73,6 +73,7 @@ public class App extends JFrame {
     private MissionManagerImpl missionManager = new MissionManagerImpl();
     private DataSource dataSource;
     private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
+    private JOptionPane dialog;
 
 
     public App() {
@@ -115,6 +116,9 @@ public class App extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Hero hero = new Hero();
+                if (heroNameTextField.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(dialog, "Hero name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 hero.setName(heroNameTextField.getText());
                 hero.setLevel((Integer)heroLevelSpinner.getValue());
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
@@ -187,6 +191,9 @@ public class App extends JFrame {
                 MissionTableModel model = (MissionTableModel) missionTable.getModel();
                 int selectedRow = missionTable.getSelectedRow();
                 Mission mission = missionManager.findMissionById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
+                missionListcomboBox.setSelectedItem(mission);
+                int index = missionListcomboBox.getSelectedIndex();
+                missionListcomboBox.removeItem(mission);
                 mission.setMission_name(missionNameTextField.getText());
                 if (missionAvailabilityCheckBox.isSelected()) {
                     mission.setAvailable(true);
@@ -194,6 +201,9 @@ public class App extends JFrame {
                 else mission.setAvailable(false);
                 mission.setCapacity((Integer)missionCapacitySpinner.getValue());
                 mission.setLevelRequired((Integer)missionLevelSpinner.getValue());
+                missionListcomboBox.insertItemAt(mission, index);
+                missionListcomboBox.setSelectedIndex(0);
+
                 model.updateRow(mission, selectedRow);
 
                 defaultMissionSettings();
@@ -265,6 +275,10 @@ public class App extends JFrame {
         sendToMissionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!((Mission) missionNameComboBox.getSelectedItem()).isAvailable()) {
+                    JOptionPane.showMessageDialog(dialog, "Bulimission is full", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 campaignManager.sendHeroToMission((Hero)heroNameComboBox.getSelectedItem(), (Mission)missionNameComboBox.getSelectedItem());
                 sendToMissionButton.setEnabled(false);
                 leaveMissionButton.setEnabled(true);

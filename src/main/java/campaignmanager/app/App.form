@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="988" height="469"/>
+      <xy x="20" y="20" width="1024" height="469"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -159,19 +159,24 @@
                 <rowspec value="center:d:grow"/>
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
+                <colspec value="fill:134px:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:134px:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:d:grow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:d:grow"/>
-                <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:max(d;4px):noGrow"/>
-                <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:d:grow"/>
-                <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
+                <colgroup>
+                  <member index="1"/>
+                  <member index="3"/>
+                  <member index="11"/>
+                </colgroup>
                 <constraints>
                   <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -213,7 +218,9 @@
                     </constraints>
                     <properties>
                       <enabled value="false"/>
-                      <text value="Button"/>
+                      <icon value="SearchIcon.png"/>
+                      <label value=""/>
+                      <text value=""/>
                     </properties>
                   </component>
                   <component id="6b30d" class="javax.swing.JLabel">
@@ -414,25 +421,28 @@
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <colspec value="fill:105px:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:105px:noGrow"/>
+                <colspec value="fill:212px:noGrow"/>
                 <colspec value="left:5dlu:noGrow"/>
                 <colspec value="fill:105px:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:105px:noGrow"/>
+                <colspec value="fill:212px:noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
-                <colspec value="left:14dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
                 <colgroup>
-                  <member index="1"/>
+                  <member index="11"/>
+                  <member index="13"/>
+                </colgroup>
+                <colgroup>
                   <member index="3"/>
-                  <member index="5"/>
                   <member index="7"/>
                 </colgroup>
                 <colgroup>
-                  <member index="10"/>
-                  <member index="12"/>
+                  <member index="1"/>
+                  <member index="5"/>
                 </colgroup>
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
@@ -472,7 +482,7 @@
                   </component>
                   <component id="847a7" class="javax.swing.JButton" binding="sendToMissionButton" default-binding="true">
                     <constraints>
-                      <grid row="4" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
                     <properties>
@@ -491,7 +501,7 @@
                   </component>
                   <component id="4d43d" class="javax.swing.JComboBox" binding="missionNameComboBox">
                     <constraints>
-                      <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
                     <properties>
@@ -501,7 +511,7 @@
                   </component>
                   <component id="77d09" class="javax.swing.JButton" binding="leaveMissionButton" default-binding="true">
                     <constraints>
-                      <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
                     <properties>
@@ -524,6 +534,7 @@
                 <colspec value="fill:d:grow"/>
                 <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:d:grow"/>
                 <colspec value="left:4dlu:noGrow"/>
@@ -552,19 +563,9 @@
                       <enabled value="false"/>
                     </properties>
                   </component>
-                  <component id="e7ea2" class="javax.swing.JButton" binding="button2" default-binding="true">
-                    <constraints>
-                      <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                      <forms/>
-                    </constraints>
-                    <properties>
-                      <enabled value="false"/>
-                      <text value="Button"/>
-                    </properties>
-                  </component>
                   <scrollpane id="ebf13" binding="missionTableScrollPane">
                     <constraints>
-                      <grid row="6" column="0" row-span="1" col-span="7" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
+                      <grid row="6" column="0" row-span="1" col-span="8" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
                       <forms defaultalign-horz="false" defaultalign-vert="false"/>
                     </constraints>
                     <properties>
@@ -580,18 +581,29 @@
                   </scrollpane>
                   <hspacer id="37c6a">
                     <constraints>
-                      <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms defaultalign-horz="false"/>
                     </constraints>
                   </hspacer>
                   <component id="907b2" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                       <forms defaultalign-horz="false"/>
                     </constraints>
                     <properties>
                       <font name="Harrington" size="18" style="1"/>
                       <text value="Bulimia je cesta"/>
+                    </properties>
+                  </component>
+                  <component id="42094" class="javax.swing.JButton" binding="button2" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <icon value="SearchIcon.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
