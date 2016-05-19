@@ -70,12 +70,6 @@ public class Mission {
 
     @Override
     public String toString() {
-        return "Mission{" +
-                "id=" + id +
-                ", mission_name='" + mission_name + '\'' +
-                ", levelRequired=" + levelRequired +
-                ", capacity=" + capacity +
-                ", available=" + available +
-                '}';
+        return mission_name;
     }
 }

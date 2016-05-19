@@ -1,3 +1,12 @@
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Mission impossible', 17, 16, true);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Mission possible', 8, 3, true);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Dragon slayer', 1, 6, true);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Spirit hunter', 20, 2, false);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Light finder', 2, 6, true);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Per aspera ad astra', 19, 2, false);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Freedom fighter', 30, 12, true);
+INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('The truth seeker', 24, 14, false);
+
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (6,'Marek', 21);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Martina', 10);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (4,'Spiderling', 1);
@@ -8,7 +17,7 @@ INSERT INTO hero (missionId, hero_name, hero_level) VALUES (5,'Elissandra', 19);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Salamandra', 5);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Kerberos', 2);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (5,'Kerbal', 10);
-INSERT INTO hero (missionId, hero_name, hero_level) VALUES ('ET Mimozemstan', 1);
+INSERT INTO hero (hero_name, hero_level) VALUES ('ET Mimozemstan', 1);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Chuck Norris', 5);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Coraline', 2);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Petr Adamek', 10);
@@ -16,18 +25,18 @@ INSERT INTO hero (missionId, hero_name, hero_level) VALUES (6,'Adka', 21);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (1,'Xena', 5);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Santa Claus', 2);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Canny', 10);
-INSERT INTO hero (missionId, hero_name, hero_level) VALUES ('Homer Simpson', 1);
+INSERT INTO hero (hero_name, hero_level) VALUES ('Homer Simpson', 1);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Bubbles', 5);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (3,'James Bond', 14);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Ribana', 15);
-INSERT INTO hero (missionId, hero_name, hero_level) VALUES ('Vinnetou', 1);
+INSERT INTO hero (hero_name, hero_level) VALUES ('Vinnetou', 1);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (2,'Blossom', 5);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Buttercup', 5);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (4,'Duffman', 2);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Sindibad', 10);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (5,'Achyles', 1);
 INSERT INTO hero (missionId, hero_name, hero_level) VALUES (1,'Spongebob', 30);
-INSERT INTO hero (missionId, hero_name, hero_level) VALUES ('Shrek', 5);
+INSERT INTO hero (hero_name, hero_level) VALUES ('Shrek', 5);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Jerry', 2);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Sauron', 10);
 INSERT INTO hero (hero_name, hero_level) VALUES ('Gandalf', 30);
@@ -39,11 +48,3 @@ INSERT INTO hero (hero_name, hero_level) VALUES ('Welma', 5);
 
 
 
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Mission impossible', 17, 16, true);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Mission possible', 8, 3, true);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Dragon slayer', 1, 6, true);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Spirit hunter', 20, 2, false);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Light finder', 2, 6, true);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Per aspera ad astra', 19, 2, false);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('Freedom fighter', 30, 12, true);
-INSERT INTO mission(mission_name, level_required, capacity, available) VALUES ('The truth seeker', 24, 14, false);

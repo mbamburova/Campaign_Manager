@@ -1,7 +1,9 @@
 package campaignmanager.app;
 
+import campaignmanager.CampaignManager;
 import campaignmanager.Hero;
 import campaignmanager.HeroManager;
+import campaignmanager.Mission;
 import common.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +23,7 @@ import java.util.concurrent.ExecutionException;
 public class HeroTableModel extends AbstractTableModel {
 
     private final HeroManager heroManager;
+    private final CampaignManager campaignManager;
     private final ResourceBundle bundle;
     private List<Hero> heroList = new ArrayList<>();
     private ReadAllSwingWorker readWorker;
@@ -28,8 +31,9 @@ public class HeroTableModel extends AbstractTableModel {
     private JOptionPane dialog;
 
 
-    public HeroTableModel(HeroManager heroManager) {
+    public HeroTableModel(HeroManager heroManager, CampaignManager campaignManager) {
         this.heroManager = heroManager;
+        this.campaignManager = campaignManager;
         bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
         readWorker = new ReadAllSwingWorker(heroManager);
         readWorker.execute();
@@ -98,47 +102,45 @@ public class HeroTableModel extends AbstractTableModel {
         }
     }
 
-/*
-        private class FilterSwingWorker extends SwingWorker<List<Hero>, Void> {
+    private class FilterSwingWorker extends SwingWorker<List<Hero>, Void> {
 
-            private final HeroManager heroManager;
-            private final String buffer;
-            private final int filterType;
+        private final HeroManager heroManager;
+        private final CampaignManager campaignManager;
+        private final Mission mission;
+        private final int filterType;
 
-            public FilterSwingWorker(HeroManager heroManager, String buffer, int filterType) {
-                this.heroManager = heroManager;
-                this.buffer = buffer;
-                this.filterType = filterType;
-            }
+        public FilterSwingWorker(HeroManager heroManager, CampaignManager campaignManager, Mission mission, int filterType) {
+            this.heroManager = heroManager;
+            this.campaignManager = campaignManager;
+            this.mission = mission;
+            this.filterType = filterType;
+        }
 
-
-            @Override
-            protected List<Hero> doInBackground() throws Exception {
-                switch (filterType) {
-                    case 1:
-                        return heroManager.;
-                    case 2:
-                        return heroManager.findActorWithBornYear(buffer);
-                    case 3:
-                        return heroManager.findActorWithDiedYear(buffer);
-                    default:
-                        return null;
-                }
-            }
-
-            @Override
-            protected void done() {
-                try {
-                    actors = get();
-                    fireTableDataChanged();
-                } catch (InterruptedException | ExecutionException e) {
-                    log.error("Exception: ", e);
-                    return;
-                }
-                log.info("Filtering actors succeed");
+        @Override
+        protected List<Hero> doInBackground() throws Exception {
+            switch (filterType) {
+                case 1:
+                    return heroManager.viewFreeHeroes();
+                case 2:
+                    return campaignManager.findHeroesByMission(mission);
+                default:
+                    return null;
             }
         }
-*/
+
+        @Override
+        protected void done() {
+            try {
+                heroList = get();
+                fireTableDataChanged();
+            } catch (InterruptedException | ExecutionException e) {
+                log.error("Exception: ", e);
+                return;
+            }
+            log.info("Filtering heroes succeed");
+        }
+    }
+
     private class AddSwingWorker extends SwingWorker<Void, Void> {
 
         private final HeroManager heroManager;
@@ -239,7 +241,7 @@ public class HeroTableModel extends AbstractTableModel {
     private AddSwingWorker addWorker;
     private UpdateSwingWorker updateWorker;
     private DeleteSwingWorker deleteWorker;
-    //private FilterSwingWorker filterWorker;
+    private FilterSwingWorker filterWorker;
 
 
 
@@ -258,11 +260,11 @@ public class HeroTableModel extends AbstractTableModel {
         readWorker = new ReadAllSwingWorker(heroManager);
         readWorker.execute();
     }
-    /*
-    public void filterTable(String buffer, int filterType) {
-        filterWorker = new FilterSwingWorker(actorManager, buffer, filterType);
+
+    public void filterTable(Mission mission, int filterType) {
+        filterWorker = new FilterSwingWorker(heroManager, campaignManager, mission, filterType);
         filterWorker.execute();
-    }*/
+    }
 
     public void updateRow(Hero hero, int row) throws ValidationException {
         updateWorker = new UpdateSwingWorker(heroManager, hero, row);
