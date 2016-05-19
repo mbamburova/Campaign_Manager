@@ -2,11 +2,14 @@ package campaignmanager;
 import common.DBUtils;
 import common.IllegalEntityException;
 import common.ServiceFailureException;
+import common.ValidationException;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class MissionManagerImpl implements MissionManager {
 
+    private ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
     private static final Logger logger = Logger.getLogger(
             MissionManagerImpl.class.getName());
 
@@ -31,19 +35,13 @@ public class MissionManagerImpl implements MissionManager {
         }
     }
 
-        /*
-    private int levelRequired;
-    private int capacity;
-    private boolean available;
-     */
-
     @Override
     public void createMission(Mission mission) {
         checkDataSource();
         validate(mission);
 
         if (mission.getId() != null) {
-            throw new IllegalEntityException("mission id is already set");
+            throw new IllegalEntityException("Mission id is already set");
         }
         Connection conn = null;
         PreparedStatement st = null;
@@ -74,14 +72,13 @@ public class MissionManagerImpl implements MissionManager {
         }
     }
 
-
     @Override
     public void updateMission(Mission mission) throws ServiceFailureException {
         checkDataSource();
         validate(mission);
 
         if (mission.getId() == null) {
-            throw new IllegalEntityException("mission id is null");
+            throw new IllegalEntityException("Mission id is null");
         }
         Connection conn = null;
         PreparedStatement st = null;
@@ -95,8 +92,6 @@ public class MissionManagerImpl implements MissionManager {
             st.setInt(3, mission.getCapacity());
             st.setBoolean(4, mission.isAvailable());
             st.setLong(5, mission.getId());
-
-
             int count = st.executeUpdate();
             DBUtils.checkUpdatesCount(count, mission, false);
             conn.commit();
@@ -112,13 +107,10 @@ public class MissionManagerImpl implements MissionManager {
 
     @Override
     public Mission findMissionById(Long id) throws ServiceFailureException {
-
         checkDataSource();
-
         if (id == null) {
             throw new IllegalArgumentException("id is null");
         }
-
         Connection conn = null;
         PreparedStatement st = null;
         try {
@@ -233,19 +225,16 @@ public class MissionManagerImpl implements MissionManager {
 
     private void validate(Mission mission) throws IllegalArgumentException {
         if (mission == null) {
-            throw new IllegalArgumentException("mission is null");
+            throw new ValidationException(bundle.getString("mission is null"));
         }
-
         if (mission.getMission_name() == null) {
-            throw new IllegalArgumentException("mission name is null");
+            throw new ValidationException(bundle.getString("mission name is null"));
         }
-
         if (mission.getLevelRequired() < 1) {
-            throw new IllegalArgumentException("required level is less than 1");
+            throw new ValidationException(bundle.getString("required level is less than 1"));
         }
-
         if(mission.getCapacity() < 1){
-            throw new IllegalArgumentException("mission capacity is less than 1");
+            throw new ValidationException(bundle.getString("mission capacity is less than 1"));
         }
     }
 }

@@ -3,6 +3,7 @@ package campaignmanager;
 import common.DBUtils;
 import common.IllegalEntityException;
 import common.ServiceFailureException;
+import common.ValidationException;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -10,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class CampaignManagerImpl implements CampaignManager {
 
-
+    private ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
     private static final Logger logger = Logger.getLogger(
             MissionManagerImpl.class.getName());
 
@@ -37,25 +40,11 @@ public class CampaignManagerImpl implements CampaignManager {
     @Override
     public void sendHeroToMission(Hero hero, Mission mission) throws ServiceFailureException, IllegalEntityException {
         checkDataSource();
-        if(hero == null){
-            throw new IllegalArgumentException("hero is null");
-        }
-        if(hero.getId() == null){
-            throw new IllegalArgumentException("hero id is null");
-        }
-        if(mission == null){
-            throw new IllegalArgumentException("mission is null");
-        }
-        if(mission.getId() == null){
-            throw new IllegalArgumentException("mission id is null");
-        }
-
+        validate(hero, mission);
         Connection conn = null;
         PreparedStatement updateSt = null;
         try {
             conn = dataSource.getConnection();
-            // Temporary turn autocommit mode off. It is turned back on in
-            // method DBUtils.closeQuietly(...)
             conn.setAutoCommit(false);
             checkIfMissionHasSpace(conn, mission);
 
@@ -77,12 +66,10 @@ public class CampaignManagerImpl implements CampaignManager {
             DBUtils.doRollbackQuietly(conn);
             DBUtils.closeQuietly(conn, updateSt);
         }
-
     }
 
     private static void checkIfMissionHasSpace(Connection conn, Mission mission) throws IllegalEntityException, SQLException {
         PreparedStatement checkSt = null;
-
         try {
             checkSt = conn.prepareStatement(
                     "SELECT capacity, COUNT(Hero.id) as heroesCount " +
@@ -106,28 +93,13 @@ public class CampaignManagerImpl implements CampaignManager {
 
     @Override
     public void removeHeroFromMission(Hero hero, Mission mission) {
-
         checkDataSource();
-        if(hero == null){
-            throw new IllegalArgumentException("hero is null");
-        }
-        if(hero.getId() == null){
-            throw new IllegalArgumentException("hero id is null");
-        }
-        if(mission == null){
-            throw new IllegalArgumentException("mission is null");
-        }
-        if(mission.getId() == null){
-            throw new IllegalArgumentException("mission id is null");
-        }
-
+        validate(hero, mission);
         Connection conn = null;
         PreparedStatement st = null;
 
         try {
             conn = dataSource.getConnection();
-            // Temporary turn autocommit mode off. It is turned back on in
-            // method DBUtils.closeQuietly(...)
             conn.setAutoCommit(false);
             st = conn.prepareStatement(
                     "UPDATE Hero SET missionId = NULL WHERE id = ? AND missionId = ?");
@@ -148,15 +120,13 @@ public class CampaignManagerImpl implements CampaignManager {
 
     @Override
     public List<Hero> findHeroesByMission(Mission mission) throws ServiceFailureException, IllegalEntityException {
-
         checkDataSource();
         if(mission == null){
-            throw new IllegalArgumentException("mission is null");
+            throw new ValidationException(bundle.getString("mission is null"));
         }
         if(mission.getId() == null){
-            throw new IllegalArgumentException("mission id is null");
+            throw new ValidationException(bundle.getString("mission id is null"));
         }
-
         Connection conn = null;
         PreparedStatement st = null;
         try {
@@ -179,15 +149,13 @@ public class CampaignManagerImpl implements CampaignManager {
 
     @Override
     public Mission findMissionByHero(Hero hero) throws ServiceFailureException, IllegalEntityException {
-
         checkDataSource();
         if(hero == null){
-            throw new IllegalArgumentException("hero is null");
+            throw new ValidationException(bundle.getString("hero is null"));
         }
         if(hero.getId() == null){
-            throw new IllegalArgumentException("hero id is null");
+            throw new ValidationException(bundle.getString("hero id is null"));
         }
-
         Connection conn = null;
         PreparedStatement st = null;
         try {
@@ -205,7 +173,21 @@ public class CampaignManagerImpl implements CampaignManager {
         } finally {
             DBUtils.closeQuietly(conn, st);
         }
+    }
 
+    public void validate(Hero hero, Mission mission) {
+        if(hero == null){
+            throw new ValidationException(bundle.getString("hero is null"));
+        }
+        if(hero.getId() == null){
+            throw new ValidationException(bundle.getString("hero id is null"));
+        }
+        if(mission == null){
+            throw new ValidationException(bundle.getString("mission is null"));
+        }
+        if(mission.getId() == null){
+            throw new ValidationException(bundle.getString("mission id is null"));
+        }
     }
 }
 

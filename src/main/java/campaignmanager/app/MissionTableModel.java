@@ -36,12 +36,10 @@ public class MissionTableModel extends AbstractTableModel {
         readWorker.execute();
     }
 
-
     public MissionManager getMissionManager() {
         return missionManager;
     }
 
-    
     public ResourceBundle getBundle() {
         return bundle;
     }
@@ -208,7 +206,6 @@ public class MissionTableModel extends AbstractTableModel {
             this.mission = mission;
             this.row = row;
         }
-
 
         @Override
         protected Void doInBackground() throws Exception {

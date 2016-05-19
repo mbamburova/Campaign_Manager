@@ -11,7 +11,6 @@ public class Mission {
     private int capacity;
     private boolean available;
 
-
     public Long getId() {
         return id;
     }
@@ -60,7 +59,6 @@ public class Mission {
         Mission mission = (Mission) o;
 
         return id.equals(mission.id);
-
     }
 
     @Override

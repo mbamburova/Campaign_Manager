@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class HeroManagerImpl implements HeroManager {
 
+    private ResourceBundle bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
     private static final Logger logger = Logger.getLogger(
             HeroManagerImpl.class.getName());
 
@@ -133,21 +136,18 @@ public class HeroManagerImpl implements HeroManager {
 
     private void validate(Hero hero) throws ValidationException {
         if (hero == null) {
-            throw new ValidationException("hero is null");
+            throw new ValidationException(bundle.getString("hero is null"));
         }
-
         if (hero.getLevel() < 1) {
-            throw new ValidationException("level is less than 1");
+            throw new ValidationException(bundle.getString("level is less than 1"));
         }
-
         if(hero.getName() == null){
-            throw new ValidationException("name is null");
+            throw new ValidationException(bundle.getString("name is null"));
         }
     }
 
     @Override
     public Hero findHeroById(Long id) {
-
         checkDataSource();
 
         if (id == null) {
@@ -189,14 +189,12 @@ public class HeroManagerImpl implements HeroManager {
         checkDataSource();
         validate(hero);
         if (hero.getId() != null) {
-            throw new IllegalEntityException("hero id is already set");
+            throw new IllegalEntityException("Hero id is already set");
         }
         Connection conn = null;
         PreparedStatement st = null;
         try {
             conn = dataSource.getConnection();
-            // Temporary turn autocommit mode off. It is turned back on in
-            // method DBUtils.closeQuietly(...)
             conn.setAutoCommit(false);
             st = conn.prepareStatement(
                     "INSERT INTO Hero (hero_name,hero_level) VALUES (?,?)",
@@ -206,7 +204,6 @@ public class HeroManagerImpl implements HeroManager {
 
             int count = st.executeUpdate();
             DBUtils.checkUpdatesCount(count, hero, true);
-
             Long id = DBUtils.getId(st.getGeneratedKeys());
             hero.setId(id);
             conn.commit();
@@ -220,20 +217,17 @@ public class HeroManagerImpl implements HeroManager {
         }
     }
 
-
     @Override
     public void updateHero(Hero hero) {
         checkDataSource();
         validate(hero);
         if (hero.getId() == null) {
-            throw new IllegalEntityException("hero id is null");
+            throw new IllegalEntityException("Hero id is null");
         }
         Connection conn = null;
         PreparedStatement st = null;
         try {
             conn = dataSource.getConnection();
-            // Temporary turn autocommit mode off. It is turned back on in
-            // method DBUtils.closeQuietly(...)
             conn.setAutoCommit(false);
             st = conn.prepareStatement(
                   "UPDATE Hero SET hero_name = ?, hero_level = ? WHERE id = ?");
@@ -267,8 +261,6 @@ public class HeroManagerImpl implements HeroManager {
         PreparedStatement st = null;
         try {
             conn = dataSource.getConnection();
-            // Temporary turn autocommit mode off. It is turned back on in
-            // method DBUtils.closeQuietly(...)
             conn.setAutoCommit(false);
             st = conn.prepareStatement(
                     "DELETE FROM Hero WHERE id = ?");

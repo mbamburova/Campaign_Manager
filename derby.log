@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Thu May 19 22:59:38 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-cad1-0b96-00000081afb8 
+Thu May 19 23:10:44 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-cadb-3739-0000008184e0 
 on database directory memory:C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager\campaign-database with class loader sun.misc.Launcher$AppClassLoader@16f6e28 
 Loaded from file:/C:/Users/Michaela%20Bamburov%c3%a1/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation

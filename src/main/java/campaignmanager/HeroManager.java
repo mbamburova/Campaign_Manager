@@ -38,10 +38,23 @@ public interface HeroManager {
      */
     List<Hero> findAllHeroes();
 
-
+    /**
+     *
+     * @return
+     */
     List<Hero> viewFreeHeroes();
 
+    /**
+     *
+     * @param level
+     * @return
+     */
     List<Hero> viewHeroesByLevel(int level);
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     List<Hero> viewHeroesByName(String name);
 }

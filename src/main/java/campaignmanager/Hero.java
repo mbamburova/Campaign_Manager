@@ -41,7 +41,6 @@ public class Hero {
         Hero hero = (Hero) o;
 
         return id.equals(hero.id);
-
     }
 
     @Override

@@ -24,7 +24,6 @@ public class CampaignDatabase {
         } catch (FileNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
         return dataSource;
     }
 

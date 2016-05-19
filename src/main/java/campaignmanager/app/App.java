@@ -71,14 +71,13 @@ public class App extends JFrame {
     private HeroManagerImpl heroManager = new HeroManagerImpl();
     private CampaignManagerImpl campaignManager = new CampaignManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();
-    private DataSource dataSource;
     private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
     private JOptionPane dialog;
 
 
     public App() {
 
-        dataSource = new CampaignDatabase().setUpDatabase();
+        DataSource dataSource = new CampaignDatabase().setUpDatabase();
         heroManager.setDataSource(dataSource);
         heroTable.setModel(new HeroTableModel(heroManager, campaignManager));
         missionManager.setDataSource(dataSource);
@@ -96,12 +95,10 @@ public class App extends JFrame {
         for (Mission missionName : missionManager.findAllMission()) {
             missionNameComboBox.addItem(missionName);
         }
-
         missionListcomboBox.removeAllItems();
         for (Mission mission1 : missionManager.findAllMission() ){
             missionListcomboBox.addItem(mission1);
         }
-
         comboBox1.addItem("view all heroes");
         comboBox1.addItem("view free heroes");
         comboBox1.addItem("view heroes by selected level");
@@ -111,12 +108,12 @@ public class App extends JFrame {
         comboBox2.addItem("view available missions");
         comboBox2.addItem("view available missions for level");
 
-
         heroCreateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Hero hero = new Hero();
                 if (heroNameTextField.getText().isEmpty()) {
+                    log.error("Hero name field is not filled");
                     JOptionPane.showMessageDialog(dialog, "Hero name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 hero.setName(heroNameTextField.getText());
@@ -129,7 +126,12 @@ public class App extends JFrame {
         heroUpdateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                log.info("Updating hero...");
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
+                if (heroNameTextField.getText().isEmpty()) {
+                    log.error("Cannot update hero! Hero name field is not filled.");
+                    JOptionPane.showMessageDialog(dialog, "Cannot update hero! Hero name field is not filled.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 int selectedRow = heroTable.getSelectedRow();
                 Hero hero = heroManager.findHeroById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
                 hero.setName(heroNameTextField.getText());
@@ -142,7 +144,6 @@ public class App extends JFrame {
         heroDeleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 log.info("Deleting hero...");
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 model.removeRow(heroTable.getSelectedRow());
@@ -169,7 +170,12 @@ public class App extends JFrame {
         missionCreateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                log.info("Creating mission...");
                 Mission mission = new Mission();
+                if (missionNameTextField.getText().isEmpty()) {
+                    log.error("Mission name field is not filled");
+                    JOptionPane.showMessageDialog(dialog, "Mission name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 mission.setMission_name(missionNameTextField.getText());
                 if (missionAvailabilityCheckBox.isSelected()) {
                     mission.setAvailable(true);
@@ -188,13 +194,20 @@ public class App extends JFrame {
         missionUpdateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                log.info("Updating mission...");
                 MissionTableModel model = (MissionTableModel) missionTable.getModel();
+
+                if (missionNameTextField.getText().isEmpty()) {
+                    log.error("Cannot update. Mission name is not filled");
+                    JOptionPane.showMessageDialog(dialog, "Cannot update. Mission name is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                }
                 int selectedRow = missionTable.getSelectedRow();
                 Mission mission = missionManager.findMissionById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
                 missionListcomboBox.setSelectedItem(mission);
                 int index = missionListcomboBox.getSelectedIndex();
                 missionListcomboBox.removeItem(mission);
                 mission.setMission_name(missionNameTextField.getText());
+
                 if (missionAvailabilityCheckBox.isSelected()) {
                     mission.setAvailable(true);
                 }
@@ -205,7 +218,6 @@ public class App extends JFrame {
                 missionListcomboBox.setSelectedIndex(0);
 
                 model.updateRow(mission, selectedRow);
-
                 defaultMissionSettings();
             }
         });
@@ -228,6 +240,7 @@ public class App extends JFrame {
                 super.mouseClicked(e);
             }
         });
+
         missionListcomboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -237,15 +250,6 @@ public class App extends JFrame {
             }
         });
 
-        missionNameComboBox.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-
-                Mission mission = (Mission) missionListcomboBox.getSelectedItem();
-
-            }
-        });
         heroNameComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -263,19 +267,24 @@ public class App extends JFrame {
                 }
             }
         });
+
         leaveMissionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                log.info("Hero is leaving mission...");
                 campaignManager.removeHeroFromMission((Hero) heroNameComboBox.getSelectedItem(), (Mission) missionNameComboBox.getSelectedItem());
                 missionNameComboBox.setEnabled(true);
                 leaveMissionButton.setEnabled(false);
                 sendToMissionButton.setEnabled(true);
             }
         });
+
         sendToMissionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                log.info("Hero is sending to mission...");
                 if (!((Mission) missionNameComboBox.getSelectedItem()).isAvailable()) {
+                    log.error("Mission is full.");
                     JOptionPane.showMessageDialog(dialog, "Bulimission is full", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -283,9 +292,9 @@ public class App extends JFrame {
                 sendToMissionButton.setEnabled(false);
                 leaveMissionButton.setEnabled(true);
                 missionNameComboBox.setEnabled(false);
-
             }
         });
+
         comboBox1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -304,7 +313,7 @@ public class App extends JFrame {
                     textField1.setEnabled(true);
                     button1.setEnabled(true);
                 }
-                else/* (heroNameComboBox.getSelectedItem().equals(3)) */{
+                else {
                     textField1.setEnabled(true);
                     button1.setEnabled(true);
                 }
@@ -322,6 +331,7 @@ public class App extends JFrame {
                 else model.filterTable(obj, 3);
             }
         });
+
         comboBox2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -336,13 +346,13 @@ public class App extends JFrame {
                     spinner1.setEnabled(false);
                     button2.setEnabled(false);
                 }
-                else/* (heroNameComboBox.getSelectedItem().equals(3)) */{
+                else {
                     spinner1.setEnabled(true);
                     button2.setEnabled(true);
                 }
             }
-
         });
+
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -355,7 +365,7 @@ public class App extends JFrame {
         });
     }
 
-    public void defaultHeroSettings() {
+    private void defaultHeroSettings() {
         heroCreateButton.setEnabled(true);
         heroUpdateButton.setEnabled(false);
         heroDeleteButton.setEnabled(false);
@@ -364,13 +374,12 @@ public class App extends JFrame {
         heroLevelSpinner.setValue(1);
     }
 
-    public void defaultMissionSettings() {
+    private void defaultMissionSettings() {
         missionCreateButton.setEnabled(true);
         missionUpdateButton.setEnabled(false);
     }
 
     public static void main(String[] args) {
-
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -378,13 +387,7 @@ public class App extends JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 

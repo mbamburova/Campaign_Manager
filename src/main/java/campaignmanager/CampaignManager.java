@@ -34,5 +34,4 @@ public interface CampaignManager {
      * @return
      */
     Mission findMissionByHero(Hero hero);
-
 }

@@ -5,7 +5,6 @@ import campaignmanager.Hero;
 import campaignmanager.HeroManager;
 import campaignmanager.Mission;
 import common.ValidationException;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
@@ -27,7 +26,7 @@ public class HeroTableModel extends AbstractTableModel {
     private final ResourceBundle bundle;
     private List<Hero> heroList = new ArrayList<>();
     private ReadAllSwingWorker readWorker;
-    final static Logger log = LoggerFactory.getLogger(HeroTableModel.class);
+    final static org.slf4j.Logger log = LoggerFactory.getLogger(HeroTableModel.class);
     private JOptionPane dialog;
 
 

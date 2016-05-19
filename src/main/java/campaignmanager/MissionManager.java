@@ -32,8 +32,14 @@ public interface MissionManager {
      */
     List<Mission> findAllMission();
 
-
+    /**
+     *
+     * @return
+     */
     List<Mission> viewAvailableMissions();
 
+    /**
+     *
+     */
     List<Mission> viewMissionsForLevel(int level);
 }
