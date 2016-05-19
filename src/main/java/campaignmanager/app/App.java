@@ -5,10 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 /**
  * Created by Michaela Bamburova on 14. 5. 2016.
@@ -26,7 +23,7 @@ public class App extends JFrame {
     private JTable table2;
     private JTextField textField3;
     private JSpinner spinner1;
-    private JSpinner spinner2;
+    private JSpinner heroLevelSpinner;
     private JCheckBox checkBox1;
     private JButton button4;
     private JButton button5;
@@ -86,6 +83,7 @@ public class App extends JFrame {
         missionManager.setDataSource(dataSource);
         missionTable.setModel(new MissionTableModel(missionManager, campaignManager));
         campaignManager.setDataSource(dataSource);
+        heroLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 42, 1));
         missionLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 35, 1));
         missionCapacitySpinner.setModel(new SpinnerNumberModel(1, 1, 20, 1));
         missionListcomboBox.removeAllItems();
@@ -98,7 +96,7 @@ public class App extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 Hero hero = new Hero();
                 hero.setName(heroNameTextField.getText());
-                hero.setLevel(Integer.parseInt(heroLevelTextField.getText()));
+                hero.setLevel((Integer)heroLevelSpinner.getValue());
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 model.addRow(hero);
             }
@@ -111,7 +109,7 @@ public class App extends JFrame {
                 int selectedRow = heroTable.getSelectedRow();
                 Hero hero = heroManager.findHeroById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
                 hero.setName(heroNameTextField.getText());
-                hero.setLevel(Integer.parseInt(heroLevelTextField.getText()));
+                hero.setLevel((Integer)heroLevelSpinner.getValue());
                 model.updateRow(hero, selectedRow);
                 defaultHeroSettings();
             }
@@ -134,7 +132,7 @@ public class App extends JFrame {
                 int selectedRow = heroTable.rowAtPoint(e.getPoint());
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 heroNameTextField.setText(model.getValueAt(selectedRow, 1).toString());
-                heroLevelTextField.setText(model.getValueAt(selectedRow, 2).toString());
+                heroLevelSpinner.setValue(Integer.parseInt(model.getValueAt(selectedRow, 2).toString()));
 
                 heroUpdateButton.setEnabled(true);
                 heroDeleteButton.setEnabled(true);
@@ -190,6 +188,10 @@ public class App extends JFrame {
                 missionNameTextField.setText(model.getValueAt(selectedRow, 1).toString());
                 missionLevelSpinner.setValue(Integer.parseInt(model.getValueAt(selectedRow, 2).toString()));
                 missionCapacitySpinner.setValue(Integer.parseInt(model.getValueAt(selectedRow, 3).toString()));
+                if (model.getValueAt(selectedRow, 4).toString().equals("true")) {
+                    missionAvailabilityCheckBox.setSelected(true);
+                }
+                else missionAvailabilityCheckBox.setSelected(false);
 
                 missionCreateButton.setEnabled(false);
                 missionUpdateButton.setEnabled(true);
@@ -204,12 +206,6 @@ public class App extends JFrame {
                 model.filterTable(mission, 2);
             }
         });
-        sendToMissionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
     }
 
     public void defaultHeroSettings() {
@@ -217,8 +213,8 @@ public class App extends JFrame {
         heroUpdateButton.setEnabled(false);
         heroDeleteButton.setEnabled(false);
 
-        heroLevelTextField.setText("");
         heroNameTextField.setText("");
+        heroLevelSpinner.setValue(1);
     }
 
     public void defaultMissionSettings() {
