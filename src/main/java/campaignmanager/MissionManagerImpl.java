@@ -179,7 +179,7 @@ public class MissionManagerImpl implements MissionManager {
         try {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
-                    "SELECT id, mission_name, level_required, capacity, available FROM Mission WHERE available = 1");
+                    "SELECT id, mission_name, level_required, capacity, available FROM Mission WHERE available = TRUE");
             return executeQueryForMultipleMissions(st);
         } catch (SQLException ex) {
             String msg = "Error when getting all missions from DB";

@@ -1,6 +1,8 @@
 package campaignmanager.app;
 
-import campaignmanager.*;
+import campaignmanager.CampaignManager;
+import campaignmanager.MissionManager;
+import campaignmanager.Mission;
 import common.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,14 +21,16 @@ import java.util.concurrent.ExecutionException;
 public class MissionTableModel extends AbstractTableModel {
 
     private final MissionManager missionManager;
+    private final CampaignManager campaignManager;
     private final ResourceBundle bundle;
     private List<Mission> missionList = new ArrayList<>();
     private ReadAllSwingWorker readWorker;
     final static Logger log = LoggerFactory.getLogger(MissionTableModel.class);
     private JOptionPane dialog;
 
-    public MissionTableModel(MissionManager missionManager) {
+    public MissionTableModel(MissionManager missionManager, CampaignManager campaignManager) {
         this.missionManager = missionManager;
+        this.campaignManager = campaignManager;
         bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
         readWorker = new ReadAllSwingWorker(missionManager);
         readWorker.execute();
@@ -120,6 +124,41 @@ public class MissionTableModel extends AbstractTableModel {
         }
     }
 
+    private class FilterSwingWorker extends SwingWorker<List<Mission>, Void> {
+
+        private final MissionManager missionManager;
+        private final CampaignManager campaignManager;
+        private final int filterType;
+
+        public FilterSwingWorker(MissionManager missionManager, CampaignManager campaignManager, int filterType) {
+            this.missionManager = missionManager;
+            this.campaignManager = campaignManager;
+            this.filterType = filterType;
+        }
+
+        @Override
+        protected List<Mission> doInBackground() throws Exception {
+            switch (filterType) {
+                case 1:
+                    return missionManager.viewAvailableMissions();
+                default:
+                    return null;
+            }
+        }
+
+        @Override
+        protected void done() {
+            try {
+                missionList = get();
+                fireTableDataChanged();
+            } catch (InterruptedException | ExecutionException e) {
+                log.error("Exception: ", e);
+                return;
+            }
+            log.info("Filtering missions succeed");
+        }
+    }
+
     private class AddSwingWorker extends SwingWorker<Void, Void> {
 
         private final MissionManager missionManager;
@@ -195,7 +234,7 @@ public class MissionTableModel extends AbstractTableModel {
 
     private AddSwingWorker addWorker;
     private UpdateSwingWorker updateWorker;
-    //private FilterSwingWorker filterWorker;
+    private FilterSwingWorker filterWorker;
 
 
     public void addRow(Mission mission) {
@@ -213,4 +252,8 @@ public class MissionTableModel extends AbstractTableModel {
         updateWorker.execute();
     }
 
+    public void filterTable(Mission mission, int filterType) {
+        filterWorker = new FilterSwingWorker(missionManager, campaignManager, filterType);
+        filterWorker.execute();
+    }
 }

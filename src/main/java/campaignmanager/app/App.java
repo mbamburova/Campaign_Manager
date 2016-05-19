@@ -80,7 +80,7 @@ public class App extends JFrame {
         heroManager.setDataSource(dataSource);
         heroTable.setModel(new HeroTableModel(heroManager, campaignManager));
         missionManager.setDataSource(dataSource);
-        missionTable.setModel(new MissionTableModel(missionManager));
+        missionTable.setModel(new MissionTableModel(missionManager, campaignManager));
         campaignManager.setDataSource(dataSource);
         missionLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 35, 1));
         missionCapacitySpinner.setModel(new SpinnerNumberModel(1, 1, 20, 1));
@@ -206,6 +206,13 @@ public class App extends JFrame {
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 Mission mission = (Mission) missionListcomboBox.getSelectedItem();
                 model.filterTable(mission, 2);
+            }
+        });
+        viewAvailableMissionsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MissionTableModel model = (MissionTableModel) missionTable.getModel();
+                model.filterTable(null, 1);
             }
         });
     }
