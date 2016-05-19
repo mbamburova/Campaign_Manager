@@ -106,23 +106,29 @@ public class HeroTableModel extends AbstractTableModel {
 
         private final HeroManager heroManager;
         private final CampaignManager campaignManager;
-        private final Mission mission;
+        private Object object;
         private final int filterType;
 
-        public FilterSwingWorker(HeroManager heroManager, CampaignManager campaignManager, Mission mission, int filterType) {
+        public FilterSwingWorker(HeroManager heroManager, CampaignManager campaignManager, Object object, int filterType) {
             this.heroManager = heroManager;
             this.campaignManager = campaignManager;
-            this.mission = mission;
+            this.object = object;
             this.filterType = filterType;
         }
 
         @Override
         protected List<Hero> doInBackground() throws Exception {
             switch (filterType) {
+                case 0:
+                    return heroManager.findAllHeroes();
                 case 1:
                     return heroManager.viewFreeHeroes();
                 case 2:
-                    return campaignManager.findHeroesByMission(mission);
+                    return heroManager.viewHeroesByLevel(Integer.parseInt(object.toString()));
+                case 3:
+                    return heroManager.viewHeroesByName((String) object);
+                case 4:
+                    return campaignManager.findHeroesByMission((Mission)object);
                 default:
                     return null;
             }
@@ -261,8 +267,8 @@ public class HeroTableModel extends AbstractTableModel {
         readWorker.execute();
     }
 
-    public void filterTable(Mission mission, int filterType) {
-        filterWorker = new FilterSwingWorker(heroManager, campaignManager, mission, filterType);
+    public void filterTable(Object object, int filterType) {
+        filterWorker = new FilterSwingWorker(heroManager, campaignManager, object, filterType);
         filterWorker.execute();
     }
 

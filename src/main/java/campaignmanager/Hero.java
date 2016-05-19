@@ -51,6 +51,6 @@ public class Hero {
 
     @Override
     public String toString() {
-        return "Hero{" + "id=" + id + '}';
+        return hero_name;
     }
 }

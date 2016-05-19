@@ -128,19 +128,25 @@ public class MissionTableModel extends AbstractTableModel {
 
         private final MissionManager missionManager;
         private final CampaignManager campaignManager;
+        private final Object object;
         private final int filterType;
 
-        public FilterSwingWorker(MissionManager missionManager, CampaignManager campaignManager, int filterType) {
+        public FilterSwingWorker(MissionManager missionManager, CampaignManager campaignManager, Object object, int filterType) {
             this.missionManager = missionManager;
             this.campaignManager = campaignManager;
+            this.object = object;
             this.filterType = filterType;
         }
 
         @Override
         protected List<Mission> doInBackground() throws Exception {
             switch (filterType) {
+                case 0:
+                    return missionManager.findAllMission();
                 case 1:
                     return missionManager.viewAvailableMissions();
+                case 2:
+                    return missionManager.viewMissionsForLevel((int)object);
                 default:
                     return null;
             }
@@ -252,8 +258,8 @@ public class MissionTableModel extends AbstractTableModel {
         updateWorker.execute();
     }
 
-    public void filterTable(Mission mission, int filterType) {
-        filterWorker = new FilterSwingWorker(missionManager, campaignManager, filterType);
+    public void filterTable(Object object, int filterType) {
+        filterWorker = new FilterSwingWorker(missionManager, campaignManager, object, filterType);
         filterWorker.execute();
     }
 }

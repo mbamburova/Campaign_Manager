@@ -200,6 +200,7 @@ public class MissionManagerImpl implements MissionManager {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
                     "SELECT id, mission_name, level_required, capacity, available FROM Mission WHERE level_required <= ?");
+            st.setLong(1, level);
             return executeQueryForMultipleMissions(st);
         } catch (SQLException ex) {
             String msg = "Error when getting all missions from DB";

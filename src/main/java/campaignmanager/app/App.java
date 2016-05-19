@@ -83,13 +83,33 @@ public class App extends JFrame {
         missionManager.setDataSource(dataSource);
         missionTable.setModel(new MissionTableModel(missionManager, campaignManager));
         campaignManager.setDataSource(dataSource);
+        spinner1.setModel(new SpinnerNumberModel(1, 1, 35, 1));
         heroLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 42, 1));
         missionLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 35, 1));
         missionCapacitySpinner.setModel(new SpinnerNumberModel(1, 1, 20, 1));
+        heroNameComboBox.removeAllItems();
+        for (Hero hero1: heroManager.findAllHeroes()) {
+            heroNameComboBox.addItem(hero1);
+        }
+        missionNameComboBox.removeAllItems();
+        for (Mission missionName : missionManager.findAllMission()) {
+            missionNameComboBox.addItem(missionName);
+        }
+
         missionListcomboBox.removeAllItems();
         for (Mission mission1 : missionManager.findAllMission() ){
             missionListcomboBox.addItem(mission1);
         }
+
+        comboBox1.addItem("view all heroes");
+        comboBox1.addItem("view free heroes");
+        comboBox1.addItem("view heroes by selected level");
+        comboBox1.addItem("view heroes by selected name");
+
+        comboBox2.addItem("view all missions");
+        comboBox2.addItem("view available missions");
+        comboBox2.addItem("view available missions for level");
+
 
         heroCreateButton.addActionListener(new ActionListener() {
             @Override
@@ -203,7 +223,120 @@ public class App extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 Mission mission = (Mission) missionListcomboBox.getSelectedItem();
-                model.filterTable(mission, 2);
+                model.filterTable(mission, 4);
+            }
+        });
+
+        missionNameComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+                Mission mission = (Mission) missionListcomboBox.getSelectedItem();
+
+            }
+        });
+        heroNameComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Hero hero = (Hero) heroNameComboBox.getSelectedItem();
+                Mission mission = campaignManager.findMissionByHero(hero);
+                if (mission == null) {
+                    missionNameComboBox.setEnabled(true);
+                    sendToMissionButton.setEnabled(true);
+                }
+                else {
+                    missionNameComboBox.setSelectedItem(mission);
+                    missionNameComboBox.setEnabled(false);
+                    leaveMissionButton.setEnabled(true);
+                    sendToMissionButton.setEnabled(false);
+                }
+            }
+        });
+        leaveMissionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                campaignManager.removeHeroFromMission((Hero) heroNameComboBox.getSelectedItem(), (Mission) missionNameComboBox.getSelectedItem());
+                missionNameComboBox.setEnabled(true);
+                leaveMissionButton.setEnabled(false);
+                sendToMissionButton.setEnabled(true);
+            }
+        });
+        sendToMissionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                campaignManager.sendHeroToMission((Hero)heroNameComboBox.getSelectedItem(), (Mission)missionNameComboBox.getSelectedItem());
+                sendToMissionButton.setEnabled(false);
+                leaveMissionButton.setEnabled(true);
+                missionNameComboBox.setEnabled(false);
+
+            }
+        });
+        comboBox1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HeroTableModel model = (HeroTableModel) heroTable.getModel();
+                if (comboBox1.getSelectedIndex() == 0) {
+                    model.refreshTable();
+                    textField1.setEnabled(false);
+                    button1.setEnabled(false);
+                }
+                else if (comboBox1.getSelectedIndex() == 1) {
+                    model.filterTable(null, 1);
+                    textField1.setEnabled(false);
+                    button1.setEnabled(false);
+                }
+                else if (comboBox1.getSelectedIndex() == 2) {
+                    textField1.setEnabled(true);
+                    button1.setEnabled(true);
+                }
+                else/* (heroNameComboBox.getSelectedItem().equals(3)) */{
+                    textField1.setEnabled(true);
+                    button1.setEnabled(true);
+                }
+            }
+        });
+
+        button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                HeroTableModel model = (HeroTableModel) heroTable.getModel();
+                Object obj = textField1.getText();
+                if(comboBox1.getSelectedIndex() == 2) {
+                    model.filterTable(obj, 2);
+                }
+                else model.filterTable(obj, 3);
+            }
+        });
+        comboBox2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MissionTableModel model = (MissionTableModel) missionTable.getModel();
+                if (comboBox2.getSelectedIndex() == 0) {
+                    model.refreshTable();
+                    spinner1.setEnabled(false);
+                    button2.setEnabled(false);
+                }
+                else if (comboBox2.getSelectedIndex() == 1) {
+                    model.filterTable(null, 1);
+                    spinner1.setEnabled(false);
+                    button2.setEnabled(false);
+                }
+                else/* (heroNameComboBox.getSelectedItem().equals(3)) */{
+                    spinner1.setEnabled(true);
+                    button2.setEnabled(true);
+                }
+            }
+
+        });
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MissionTableModel model = (MissionTableModel) missionTable.getModel();
+                Object obj = spinner1.getValue();
+                if (comboBox2.getSelectedIndex() == 2) {
+                    model.filterTable(obj, 2);
+                }
             }
         });
     }

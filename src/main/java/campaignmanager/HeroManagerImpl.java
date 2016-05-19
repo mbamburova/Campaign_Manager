@@ -82,6 +82,7 @@ public class HeroManagerImpl implements HeroManager {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
                     "SELECT id, hero_name, hero_level FROM hero WHERE hero_level = ?");
+            st.setInt(1, level);
             return executeQueryForMultipleHeroes(st);
         } catch (SQLException ex) {
             String msg = "Error when getting all heroes from DB";
@@ -101,7 +102,8 @@ public class HeroManagerImpl implements HeroManager {
         try {
             conn = dataSource.getConnection();
             st = conn.prepareStatement(
-                    "SELECT id, hero_name, hero_level FROM hero WHERE hero_name = ?");
+                    "SELECT id, hero_name, hero_level FROM hero WHERE hero_name LIKE '%' || ? || '%'");
+            st.setString(1, name);
             return executeQueryForMultipleHeroes(st);
         } catch (SQLException ex) {
             String msg = "Error when getting all heroes from DB";
