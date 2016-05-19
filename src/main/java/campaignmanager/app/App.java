@@ -70,6 +70,7 @@ public class App extends JFrame {
     private JButton button1;
     private JComboBox comboBox2;
     private JButton button2;
+    private JTextField textField1;
     private HeroManagerImpl heroManager = new HeroManagerImpl();
     private CampaignManagerImpl campaignManager = new CampaignManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();
@@ -195,14 +196,6 @@ public class App extends JFrame {
                 super.mouseClicked(e);
             }
         });
-        viewFreeHeroesButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                HeroTableModel model = (HeroTableModel) heroTable.getModel();
-                model.filterTable(null, 1);
-
-            }
-        });
         missionListcomboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -211,11 +204,10 @@ public class App extends JFrame {
                 model.filterTable(mission, 2);
             }
         });
-        viewAvailableMissionsButton.addActionListener(new ActionListener() {
+        sendToMissionButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                MissionTableModel model = (MissionTableModel) missionTable.getModel();
-                model.filterTable(null, 1);
+
             }
         });
     }
