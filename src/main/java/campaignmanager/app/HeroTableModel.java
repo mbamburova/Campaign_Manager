@@ -4,7 +4,7 @@ import campaignmanager.CampaignManager;
 import campaignmanager.Hero;
 import campaignmanager.HeroManager;
 import campaignmanager.Mission;
-import common.ValidationException;
+import campaignmanager.common.ValidationException;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;

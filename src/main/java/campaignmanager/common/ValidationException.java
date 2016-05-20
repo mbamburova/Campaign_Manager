@@ -1,4 +1,4 @@
-package common;
+package campaignmanager.common;
 
 /**
  * This exception is thrown when validation of entity fails.
@@ -6,13 +6,6 @@ package common;
  * @author Petr Adámek
  */
 public class ValidationException extends RuntimeException {
-
-    /**
-     * Creates a new instance of
-     * <code>ValidationException</code> without detail message.
-     */
-    public ValidationException() {
-    }
 
     /**
      * Constructs an instance of

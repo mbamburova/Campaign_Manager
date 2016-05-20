@@ -3,7 +3,7 @@ package campaignmanager.app;
 import campaignmanager.CampaignManager;
 import campaignmanager.MissionManager;
 import campaignmanager.Mission;
-import common.ValidationException;
+import campaignmanager.common.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

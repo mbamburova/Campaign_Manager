@@ -1,9 +1,9 @@
 package campaignmanager;
 
-import common.DBUtils;
-import common.IllegalEntityException;
-import common.ServiceFailureException;
-import common.ValidationException;
+import campaignmanager.common.DBUtils;
+import campaignmanager.common.IllegalEntityException;
+import campaignmanager.common.ServiceFailureException;
+import campaignmanager.common.ValidationException;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

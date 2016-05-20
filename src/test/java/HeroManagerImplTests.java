@@ -1,9 +1,8 @@
 import campaignmanager.Hero;
 import campaignmanager.HeroManager;
-import common.DBUtils;
-import common.IllegalEntityException;
-import common.ServiceFailureException;
-import common.ValidationException;
+import campaignmanager.common.IllegalEntityException;
+import campaignmanager.common.ServiceFailureException;
+import campaignmanager.common.ValidationException;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.After;
 import org.junit.Before;

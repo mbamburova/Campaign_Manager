@@ -1,6 +1,6 @@
 import campaignmanager.Mission;
 import campaignmanager.MissionManagerImpl;
-import common.IllegalEntityException;
+import campaignmanager.common.IllegalEntityException;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.After;
