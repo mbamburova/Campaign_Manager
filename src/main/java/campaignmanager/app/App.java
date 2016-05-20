@@ -72,12 +72,13 @@ public class App extends JFrame {
     private CampaignManagerImpl campaignManager = new CampaignManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();
     private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
+    DataSource dataSource;
     private JOptionPane dialog;
 
 
     public App() {
 
-        DataSource dataSource = new CampaignDatabase().setUpDatabase();
+        dataSource = new CampaignDatabase().setUpDatabase();
         heroManager.setDataSource(dataSource);
         heroTable.setModel(new HeroTableModel(heroManager, campaignManager));
         missionManager.setDataSource(dataSource);
@@ -115,6 +116,7 @@ public class App extends JFrame {
                 if (heroNameTextField.getText().isEmpty()) {
                     log.error("Hero name field is not filled");
                     JOptionPane.showMessageDialog(dialog, "Hero name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 hero.setName(heroNameTextField.getText());
                 hero.setLevel((Integer)heroLevelSpinner.getValue());
@@ -131,6 +133,7 @@ public class App extends JFrame {
                 if (heroNameTextField.getText().isEmpty()) {
                     log.error("Cannot update hero! Hero name field is not filled.");
                     JOptionPane.showMessageDialog(dialog, "Cannot update hero! Hero name field is not filled.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 int selectedRow = heroTable.getSelectedRow();
                 Hero hero = heroManager.findHeroById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
@@ -175,6 +178,7 @@ public class App extends JFrame {
                 if (missionNameTextField.getText().isEmpty()) {
                     log.error("Mission name field is not filled");
                     JOptionPane.showMessageDialog(dialog, "Mission name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 mission.setMission_name(missionNameTextField.getText());
                 if (missionAvailabilityCheckBox.isSelected()) {
@@ -200,6 +204,7 @@ public class App extends JFrame {
                 if (missionNameTextField.getText().isEmpty()) {
                     log.error("Cannot update. Mission name is not filled");
                     JOptionPane.showMessageDialog(dialog, "Cannot update. Mission name is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
                 }
                 int selectedRow = missionTable.getSelectedRow();
                 Mission mission = missionManager.findMissionById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
@@ -325,10 +330,22 @@ public class App extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 Object obj = textField1.getText();
-                if(comboBox1.getSelectedIndex() == 2) {
-                    model.filterTable(obj, 2);
+                switch (comboBox1.getSelectedIndex()) {
+                    case 3:
+                            model.filterTable(obj, 3);
+                            break;
+                    case 2:
+                        try {
+                            model.filterTable(Integer.parseInt(obj.toString()), 2);
+                        } catch (NumberFormatException ex) {
+                            log.error("Cannot search!");
+                            JOptionPane.showMessageDialog(dialog, "Cannot search! The field must contain a number.", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        break;
+                    default:
+                        log.error("Cannot search!");
+                        JOptionPane.showMessageDialog(dialog, "Cannot search!", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-                else model.filterTable(obj, 3);
             }
         });
 
