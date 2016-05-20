@@ -2,26 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95217c72-c539-4971-b2e9-ac4a2abbbec5" name="Default" comment="sql data fixed">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/common/IllegalEntityException.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/common/EntityNotFoundException.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/common/IllegalEntityException.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/common/DBUtils.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/common/DBUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/common/ServiceFailureException.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/common/ServiceFailureException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/common/ValidationException.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/common/ValidationException.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/common/DBUtils.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/common/EntityNotFoundException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/common/IllegalEntityException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/common/ServiceFailureException.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/common/ValidationException.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/campaignmanager/CampaignManagerImpl.class" afterPath="$PROJECT_DIR$/target/classes/campaignmanager/CampaignManagerImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/campaignmanager/Hero.class" afterPath="$PROJECT_DIR$/target/classes/campaignmanager/Hero.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/campaignmanager/HeroManagerImpl.class" afterPath="$PROJECT_DIR$/target/classes/campaignmanager/HeroManagerImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/campaignmanager/Mission.class" afterPath="$PROJECT_DIR$/target/classes/campaignmanager/Mission.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/campaignmanager/MissionManagerImpl.class" afterPath="$PROJECT_DIR$/target/classes/campaignmanager/MissionManagerImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/HeroManagerImplTests.class" afterPath="$PROJECT_DIR$/target/test-classes/HeroManagerImplTests.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/MissionManagerImplTests.class" afterPath="$PROJECT_DIR$/target/test-classes/MissionManagerImplTests.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManagerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/HeroManagerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/MissionManagerImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/app/HeroTableModel.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/app/HeroTableModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/app/MissionTableModel.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/app/MissionTableModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/HeroManagerImplTests.java" afterPath="$PROJECT_DIR$/src/test/java/HeroManagerImplTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/MissionManagerImplTests.java" afterPath="$PROJECT_DIR$/src/test/java/MissionManagerImplTests.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" afterPath="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Campaign_Manager_web/Campaign_Manager_web.iml" afterPath="$PROJECT_DIR$/../Campaign_Manager_web/Campaign_Manager_web.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Campaign_Manager_web/pom.xml" afterPath="$PROJECT_DIR$/../Campaign_Manager_web/pom.xml" />
     </list>
@@ -54,11 +47,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="411" column="0" selection-start-line="411" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -110,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IllegalEntityException.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IllegalEntityException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/common/IllegalEntityException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
@@ -258,11 +251,11 @@
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/app/MissionTableModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/CampaignDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/CampaignManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/IllegalEntityException.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/ServiceFailureException.java" />
         <option value="$PROJECT_DIR$/src/main/java/common/ValidationException.java" />
         <option value="$PROJECT_DIR$/src/main/java/campaignmanager/common/DBUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java" />
       </list>
     </option>
   </component>
@@ -412,6 +405,74 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaignmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gravemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Campaign_Manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaignmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gravemanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Campaign_Manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaignmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1193,7 +1254,7 @@
       <workItem from="1463590484031" duration="11288000" />
       <workItem from="1463603108756" duration="10765000" />
       <workItem from="1463642124095" duration="651000" />
-      <workItem from="1463642962412" duration="43153000" />
+      <workItem from="1463642962412" duration="43516000" />
     </task>
     <task id="LOCAL-00001" summary="aaaaa">
       <created>1459443339789</created>
@@ -1398,7 +1459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463704560675</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="renamed package">
+      <created>1463705239824</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1463705239824</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1434,7 +1502,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278785000" />
+    <option name="totallyTimeSpent" value="279148000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1924" height="1060" extended-state="0" />
@@ -1450,7 +1518,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937366" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08453838" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2572383" sideWeight="0.494705" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25612473" sideWeight="0.494705" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1521,7 +1589,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="true" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="30" />
-    <MESSAGE value="MainWindow Mata" />
     <MESSAGE value="Create MainWindow" />
     <MESSAGE value="MainWindow change 1" />
     <MESSAGE value="MainWindow Change 2" />
@@ -1546,18 +1613,11 @@
     <MESSAGE value="all methods implemented" />
     <MESSAGE value="small changes, added loggers" />
     <MESSAGE value="Mata dorob :D" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mata dorob :D" />
+    <MESSAGE value="renamed package" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java</url>
-          <line>332</line>
-          <properties />
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="30" />
     </breakpoint-manager>
     <watches-manager />
@@ -1922,16 +1982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="411" column="0" selection-start-line="411" selection-start-column="0" selection-end-line="411" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/CampaignDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1982,6 +2032,16 @@
           <folding>
             <element signature="e#459#460#0" expanded="true" />
             <element signature="e#485#486#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/campaignmanager/app/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

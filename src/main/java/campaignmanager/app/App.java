@@ -5,7 +5,10 @@ import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  * Created by Michaela Bamburova on 14. 5. 2016.
@@ -72,9 +75,13 @@ public class App extends JFrame {
     private CampaignManagerImpl campaignManager = new CampaignManagerImpl();
     private MissionManagerImpl missionManager = new MissionManagerImpl();
     private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
-    DataSource dataSource;
+    private DataSource dataSource;
     private JOptionPane dialog;
 
+    //TODO: vlozit databazu
+    //TODO: opravit bundles + dorobit pre vynimky
+    //TODO: opravit Logger
+    //TODO:(vylepsit update posielania hrdiniov na misie)
 
     public App() {
 
