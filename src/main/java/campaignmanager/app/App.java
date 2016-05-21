@@ -1,6 +1,6 @@
 package campaignmanager.app;
 
-import campaignmanager.*;
+import campaignmanager.backend.*;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
@@ -53,10 +53,8 @@ public class App extends JFrame {
     private JButton missionCreateButton;
     private JButton missionUpdateButton;
     private JLabel missionName;
-    private JButton sendButton;
     private JComboBox heroNameComboBox;
     private JComboBox missionNameComboBox;
-    private JButton leaveButton;
     private JLabel heroFateName;
     private JLabel missionFateName;
     private JLabel fateText;

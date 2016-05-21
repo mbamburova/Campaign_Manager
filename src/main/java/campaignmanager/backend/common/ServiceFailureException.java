@@ -1,4 +1,4 @@
-package campaignmanager.common;
+package campaignmanager.backend.common;
 
 /**
  * This exception indicates service failure.

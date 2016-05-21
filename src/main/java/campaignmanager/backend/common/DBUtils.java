@@ -1,4 +1,4 @@
-package campaignmanager.common;
+package campaignmanager.backend.common;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -11,11 +11,6 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Some DB tools.
- * 
- * @author Petr Adamek 
- */
 public class DBUtils {
 
     private static final Logger logger = Logger.getLogger(

@@ -1,9 +1,9 @@
 package campaignmanager.app;
 
-import campaignmanager.CampaignManager;
-import campaignmanager.MissionManager;
-import campaignmanager.Mission;
-import campaignmanager.common.ValidationException;
+import campaignmanager.backend.CampaignManager;
+import campaignmanager.backend.MissionManager;
+import campaignmanager.backend.Mission;
+import campaignmanager.backend.common.ValidationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

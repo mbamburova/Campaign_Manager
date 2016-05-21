@@ -1,10 +1,10 @@
 package campaignmanager.app;
 
-import campaignmanager.CampaignManager;
-import campaignmanager.Hero;
-import campaignmanager.HeroManager;
-import campaignmanager.Mission;
-import campaignmanager.common.ValidationException;
+import campaignmanager.backend.CampaignManager;
+import campaignmanager.backend.Hero;
+import campaignmanager.backend.HeroManager;
+import campaignmanager.backend.Mission;
+import campaignmanager.backend.common.ValidationException;
 import org.slf4j.LoggerFactory;
 
 import javax.swing.*;

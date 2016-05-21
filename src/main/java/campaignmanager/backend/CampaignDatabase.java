@@ -1,4 +1,4 @@
-package campaignmanager;
+package campaignmanager.backend;
 
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;

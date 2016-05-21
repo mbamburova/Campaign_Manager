@@ -1,6 +1,6 @@
-import campaignmanager.CampaignManagerImpl;
-import campaignmanager.Hero;
-import campaignmanager.Mission;
+import campaignmanager.backend.CampaignManagerImpl;
+import campaignmanager.backend.Hero;
+import campaignmanager.backend.Mission;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.After;

@@ -1,4 +1,4 @@
-package campaignmanager.common;
+package campaignmanager.backend.common;
 
 /**
  * This exception is thrown when you try to use an entity that can not be 

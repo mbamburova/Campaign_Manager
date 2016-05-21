@@ -1,4 +1,4 @@
-package campaignmanager;
+package campaignmanager.backend;
 
 /**
  * Created by Anonym on 8. 3. 2016.

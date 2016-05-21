@@ -1,4 +1,4 @@
-import campaignmanager.Hero;
+import campaignmanager.backend.Hero;
 
 /**
  * Created by Michaela Bamburová on 28.03.2016.

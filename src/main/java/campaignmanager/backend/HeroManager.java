@@ -1,4 +1,4 @@
-package campaignmanager;
+package campaignmanager.backend;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-import campaignmanager.Hero;
-import campaignmanager.HeroManager;
-import campaignmanager.common.IllegalEntityException;
-import campaignmanager.common.ServiceFailureException;
-import campaignmanager.common.ValidationException;
+import campaignmanager.backend.Hero;
+import campaignmanager.backend.HeroManager;
+import campaignmanager.backend.common.IllegalEntityException;
+import campaignmanager.backend.common.ServiceFailureException;
+import campaignmanager.backend.common.ValidationException;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.After;
 import org.junit.Before;
@@ -10,7 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import javax.sql.DataSource;
-import campaignmanager.HeroManagerImpl;
+import campaignmanager.backend.HeroManagerImpl;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;

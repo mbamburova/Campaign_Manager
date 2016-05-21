@@ -1,6 +1,6 @@
-import campaignmanager.Mission;
-import campaignmanager.MissionManagerImpl;
-import campaignmanager.common.IllegalEntityException;
+import campaignmanager.backend.Mission;
+import campaignmanager.backend.MissionManagerImpl;
+import campaignmanager.backend.common.IllegalEntityException;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.After;
@@ -215,7 +215,7 @@ public class MissionManagerImplTests {
 
     @Test
     public void addMissionWithZeroCapacity() {
-        campaignmanager.Mission mission = newMission(0, 2, true);
+        campaignmanager.backend.Mission mission = newMission(0, 2, true);
 
         expectedException.except(IllegalArgumentException.class);
 
