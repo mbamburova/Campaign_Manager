@@ -1,6 +1,7 @@
 package campaignmanager.app;
 
 import campaignmanager.backend.*;
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
@@ -78,8 +79,7 @@ public class App extends JFrame {
 
     //TODO: vlozit databazu
     //TODO: opravit bundles + dorobit pre vynimky
-    //TODO: opravit Logger
-    //TODO:(vylepsit update posielania hrdiniov na misie)
+    //TODO:(vylepsit update posielania hrdinov na misie)
 
     public App() {
 
@@ -412,6 +412,8 @@ public class App extends JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
+        BasicConfigurator.configure();
 
         JFrame frame = new JFrame("Campaign manager");
         frame.setContentPane(new App().panel1);
