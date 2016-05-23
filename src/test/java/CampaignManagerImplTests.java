@@ -33,7 +33,6 @@ public class CampaignManagerImplTests {
         manager = new CampaignManagerImpl();
     }
 
-
     @After
     public void tearDown() throws SQLException {
         try (Connection connection = dataSource.getConnection()) {
@@ -42,7 +41,6 @@ public class CampaignManagerImplTests {
         } catch (FileNotFoundException ignored) {
         }
     }
-
 
     @Test(expected = IllegalStateException.class)
     public void sendHeroToMission() throws Exception {
@@ -84,7 +82,6 @@ public class CampaignManagerImplTests {
 
         manager.sendHeroToMission(hero, mission);
     }
-
 
     private static EmbeddedDataSource prepareDataSource() throws SQLException {
         EmbeddedDataSource ds = new EmbeddedDataSource();

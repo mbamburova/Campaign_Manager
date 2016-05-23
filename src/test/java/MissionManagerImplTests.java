@@ -25,15 +25,8 @@ public class MissionManagerImplTests {
     private MissionManagerImpl manager;
     private DataSource dataSource;
 
-
     @Before
     public void setUp() throws SQLException {
-        /*
-        dataSource = prepareDataSource();
-        DBUtils.executeSqlScript(dataSource,MissionManager.class.getResource("src\\main\\resources\\create_table.sql"));
-        manager = new MissionManagerImpl();
-        manager.setDataSource(dataSource);
-        */
 
         dataSource = prepareDataSource();
 
@@ -188,8 +181,6 @@ public class MissionManagerImplTests {
         }
     };
 
-
-
     public static Mission newMission(String mission_name, int levelRequired, int capacity, boolean available) {
         Mission mission = new Mission();
         mission.setMission_name(mission_name);
@@ -207,20 +198,4 @@ public class MissionManagerImplTests {
         ds.setCreateDatabase("create");
         return ds;
     }
-
-
-    /*
-    @Rule
-    public ExpectedException = expectedException = ExpectedException.none();
-
-    @Test
-    public void addMissionWithZeroCapacity() {
-        campaignmanager.backend.Mission mission = newMission(0, 2, true);
-
-        expectedException.except(IllegalArgumentException.class);
-
-        manager.createMission(mission);
-    }
-     */
-
 }

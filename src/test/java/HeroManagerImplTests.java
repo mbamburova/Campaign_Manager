@@ -1,28 +1,30 @@
 import campaignmanager.backend.Hero;
 import campaignmanager.backend.HeroManager;
+import campaignmanager.backend.HeroManagerImpl;
 import campaignmanager.backend.common.IllegalEntityException;
 import campaignmanager.backend.common.ServiceFailureException;
 import campaignmanager.backend.common.ValidationException;
+import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.apache.ibatis.jdbc.ScriptRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import javax.sql.DataSource;
-import campaignmanager.backend.HeroManagerImpl;
-import static org.junit.Assert.*;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.SQLException;
-import org.apache.derby.jdbc.EmbeddedDataSource;
-import org.junit.rules.ExpectedException;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Created by Anonym on 14. 3. 2016.
@@ -66,10 +68,6 @@ public class HeroManagerImplTests {
         }
     }
 
-    // ---------------
-    // TEST DATA
-    // ---------------
-
     private HeroBuilder sampleFemaleHero() {
         return new HeroBuilder()
                 .id(null)
@@ -84,8 +82,6 @@ public class HeroManagerImplTests {
                 .hero_level(12);
     }
 
-    // --------------
-
     @Test
     public void createHero() {
         Hero hero = sampleFemaleHero().build();
@@ -99,7 +95,6 @@ public class HeroManagerImplTests {
                 .isEqualToComparingFieldByField(hero);
     }
 
-    // FIND ALL HEROES
 
     @Test
     public void findAllHeroes() {
@@ -117,13 +112,11 @@ public class HeroManagerImplTests {
                 .containsOnly(g1,g2);
     }
 
-    // Tests for CREATE
 
     @Test (expected = ValidationException.class)
     public void createNullHero()  { managerHero.createHero(null);
     }
 
-    // not really necessary
     @Test
     public void createHeroWithId() {
         Hero hero = sampleFemaleHero().id(1L).build();
@@ -151,10 +144,6 @@ public class HeroManagerImplTests {
         assertThatThrownBy(() -> managerHero.createHero(hero))
                 .isInstanceOf(ValidationException.class);
     }
-
-    // Tests for FIND
-
-    // Tests for UDPADE
 
     @Test
     public void updateHeroLevel() {
@@ -244,8 +233,6 @@ public class HeroManagerImplTests {
         expectedException.expect(ValidationException.class);
         managerHero.updateHero(hero);
     }
-
-    // Tests for DELETE
 
     @Test
     public void deleteHero() {

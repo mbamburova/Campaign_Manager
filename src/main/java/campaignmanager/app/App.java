@@ -61,7 +61,7 @@ public class App extends JFrame {
     private JLabel missionManagText;
     private JButton viewAvailableMissionsButton;
     private JButton viewFreeHeroesButton;
-    private JComboBox missionListcomboBox;
+    private JComboBox missionListComboBox;
     private JButton sendToMissionButton;
     private JButton leaveMissionButton;
     private JComboBox comboBox1;
@@ -78,8 +78,6 @@ public class App extends JFrame {
 
     //TODO: vlozit databazu
     //TODO: opravit bundles + dorobit pre vynimky
-    //TODO: opravit Logger
-    //TODO:(vylepsit update posielania hrdiniov na misie)
 
     public App() {
 
@@ -101,9 +99,9 @@ public class App extends JFrame {
         for (Mission missionName : missionManager.findAllMission()) {
             missionNameComboBox.addItem(missionName);
         }
-        missionListcomboBox.removeAllItems();
+        missionListComboBox.removeAllItems();
         for (Mission mission1 : missionManager.findAllMission() ){
-            missionListcomboBox.addItem(mission1);
+            missionListComboBox.addItem(mission1);
         }
         comboBox1.addItem("view all heroes");
         comboBox1.addItem("view free heroes");
@@ -126,6 +124,8 @@ public class App extends JFrame {
                 hero.setName(heroNameTextField.getText());
                 hero.setLevel((Integer)heroLevelSpinner.getValue());
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
+
+                heroNameComboBox.addItem(hero);
                 model.addRow(hero);
             }
         });
@@ -144,6 +144,13 @@ public class App extends JFrame {
                 Hero hero = heroManager.findHeroById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
                 hero.setName(heroNameTextField.getText());
                 hero.setLevel((Integer)heroLevelSpinner.getValue());
+
+                int index = heroNameComboBox.getSelectedIndex();
+                heroNameComboBox.removeItem(hero);
+
+                heroNameComboBox.insertItemAt(hero, index);
+                heroNameComboBox.setSelectedIndex(0);
+
                 model.updateRow(hero, selectedRow);
                 defaultHeroSettings();
             }
@@ -154,7 +161,11 @@ public class App extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 log.info("Deleting hero...");
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
+                int selectedRow = heroTable.getSelectedRow();
+                Hero hero = heroManager.findHeroById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
+                heroNameComboBox.removeItem(hero);
                 model.removeRow(heroTable.getSelectedRow());
+
                 defaultHeroSettings();
             }
         });
@@ -194,7 +205,8 @@ public class App extends JFrame {
                 mission.setCapacity((Integer)missionCapacitySpinner.getValue());
                 mission.setLevelRequired((Integer)missionLevelSpinner.getValue());
                 MissionTableModel model = (MissionTableModel) missionTable.getModel();
-                missionListcomboBox.addItem(mission);
+                missionListComboBox.addItem(mission);
+                missionNameComboBox.addItem(mission);
                 model.addRow(mission);
                 defaultMissionSettings();
             }
@@ -213,10 +225,16 @@ public class App extends JFrame {
                 }
                 int selectedRow = missionTable.getSelectedRow();
                 Mission mission = missionManager.findMissionById(Long.parseLong(model.getValueAt(selectedRow, 0).toString()));
-                missionListcomboBox.setSelectedItem(mission);
-                int index = missionListcomboBox.getSelectedIndex();
-                missionListcomboBox.removeItem(mission);
+                missionListComboBox.setSelectedItem(mission);
+                missionNameComboBox.setSelectedItem(mission);
+
+                int index = missionListComboBox.getSelectedIndex();
+                missionListComboBox.removeItem(mission);
                 mission.setMission_name(missionNameTextField.getText());
+
+                int index2 = missionNameComboBox.getSelectedIndex();
+                missionNameComboBox.removeItem(mission);
+
 
                 if (missionAvailabilityCheckBox.isSelected()) {
                     mission.setAvailable(true);
@@ -224,8 +242,12 @@ public class App extends JFrame {
                 else mission.setAvailable(false);
                 mission.setCapacity((Integer)missionCapacitySpinner.getValue());
                 mission.setLevelRequired((Integer)missionLevelSpinner.getValue());
-                missionListcomboBox.insertItemAt(mission, index);
-                missionListcomboBox.setSelectedIndex(0);
+
+                missionListComboBox.insertItemAt(mission, index);
+                missionListComboBox.setSelectedIndex(0);
+
+                missionNameComboBox.insertItemAt(mission, index2);
+                missionNameComboBox.setSelectedIndex(0);
 
                 model.updateRow(mission, selectedRow);
                 defaultMissionSettings();
@@ -251,11 +273,11 @@ public class App extends JFrame {
             }
         });
 
-        missionListcomboBox.addActionListener(new ActionListener() {
+        missionListComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
-                Mission mission = (Mission) missionListcomboBox.getSelectedItem();
+                Mission mission = (Mission) missionListComboBox.getSelectedItem();
                 model.filterTable(mission, 4);
             }
         });

@@ -5,7 +5,6 @@ import campaignmanager.backend.Hero;
  */
 public class HeroBuilder {
 
-
         private Long id;
         private String hero_name;
         private int hero_level;
