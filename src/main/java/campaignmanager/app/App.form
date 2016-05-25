@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="988" height="469"/>
+      <xy x="20" y="20" width="1024" height="469"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -16,36 +16,24 @@
         </constraints>
         <properties>
           <font/>
-          <name resource-bundle="Bundle" key="HERO"/>
+          <name resource-bundle="Bundle" key="MISSION"/>
+          <opaque value="false"/>
         </properties>
         <border type="none"/>
         <children>
-          <grid id="45e8a" binding="heroPanel" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="45e8a" binding="heroPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <tabbedpane title="Hero"/>
+              <tabbedpane title-resource-bundle="Bundle" title-key="HERO"/>
             </constraints>
             <properties/>
             <border type="none"/>
             <children>
-              <scrollpane id="58627" binding="heroTableScrollPane">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="1" use-parent-layout="false">
-                    <preferred-size width="404" height="419"/>
-                  </grid>
-                </constraints>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <component id="9358a" class="javax.swing.JTable" binding="heroTable">
-                    <constraints/>
-                    <properties/>
-                  </component>
-                </children>
-              </scrollpane>
               <grid id="20924" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="center:d:noGrow"/>
-                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="top:5dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
@@ -55,11 +43,11 @@
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:d:grow"/>
-                <colspec value="fill:92px:noGrow"/>
+                <colspec value="fill:108px:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:92px:noGrow"/>
+                <colspec value="fill:108px:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:92px:noGrow"/>
+                <colspec value="fill:108px:noGrow"/>
                 <rowgroup>
                   <member index="5"/>
                   <member index="7"/>
@@ -70,7 +58,7 @@
                   <member index="5"/>
                 </colgroup>
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -94,17 +82,6 @@
                       <font name="Harrington" size="16" style="1"/>
                       <maximumSize width="52" height="20"/>
                       <text resource-bundle="Bundle" key="LEVEL"/>
-                    </properties>
-                  </component>
-                  <component id="3b6af" class="javax.swing.JTextField" binding="heroLevelTextField">
-                    <constraints>
-                      <grid row="6" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                        <preferred-size width="150" height="-1"/>
-                      </grid>
-                      <forms defaultalign-horz="false"/>
-                    </constraints>
-                    <properties>
-                      <text value=""/>
                     </properties>
                   </component>
                   <component id="b3bfc" class="javax.swing.JTextField" binding="heroNameTextField">
@@ -149,7 +126,7 @@
                   </component>
                   <component id="ba32" class="javax.swing.JLabel" binding="heroTitle">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                       <forms defaultalign-horz="false"/>
                     </constraints>
                     <properties>
@@ -159,74 +136,151 @@
                   </component>
                   <component id="ee3de" class="javax.swing.JSeparator">
                     <constraints>
-                      <grid row="10" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                      <grid row="12" column="0" row-span="1" col-span="5" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                       <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="64401" class="javax.swing.JSpinner" binding="heroLevelSpinner">
+                    <constraints>
+                      <grid row="6" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
                     </constraints>
                     <properties/>
                   </component>
                 </children>
               </grid>
-              <component id="c7044" class="javax.swing.JLabel" binding="heroesOfTheTavernLabel">
+              <grid id="dc8" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <colspec value="fill:134px:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:134px:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <colgroup>
+                  <member index="1"/>
+                  <member index="3"/>
+                  <member index="11"/>
+                </colgroup>
                 <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Harrington" size="18" style="1"/>
-                  <text resource-bundle="Bundle" key="HEROESOFTHETAVERN"/>
-                </properties>
-              </component>
-              <component id="6c2be" class="javax.swing.JButton" binding="viewFreeHeroesButton" default-binding="true">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text resource-bundle="Bundle" key="VIEWFREEHEROES"/>
-                </properties>
-              </component>
-              <component id="9bf4f" class="javax.swing.JComboBox" binding="missionListcomboBox">
-                <constraints>
-                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
-              </component>
-              <component id="6b30d" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text resource-bundle="Bundle" key="VIEWBYMISSION"/>
-                </properties>
-              </component>
+                <border type="none"/>
+                <children>
+                  <component id="c7044" class="javax.swing.JLabel" binding="heroesOfTheTavernLabel">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="11" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Harrington" size="18" style="1"/>
+                      <text resource-bundle="Bundle" key="HEROESOFTHETAVERN"/>
+                    </properties>
+                  </component>
+                  <component id="61123" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <component id="e03ea" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="150" height="-1"/>
+                      </grid>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                    </properties>
+                  </component>
+                  <component id="2accd" class="javax.swing.JButton" binding="button1" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <icon value="SearchIcon.png"/>
+                      <label value=""/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="6b30d" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <text resource-bundle="Bundle" key="VIEWBYMISSION"/>
+                    </properties>
+                  </component>
+                  <component id="9bf4f" class="javax.swing.JComboBox" binding="missionListcomboBox">
+                    <constraints>
+                      <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties/>
+                  </component>
+                  <scrollpane id="58627" binding="heroTableScrollPane">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="11" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="1" use-parent-layout="false">
+                        <preferred-size width="404" height="419"/>
+                      </grid>
+                      <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="9358a" class="javax.swing.JTable" binding="heroTable">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                  <hspacer id="26850">
+                    <constraints>
+                      <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                  </hspacer>
+                </children>
+              </grid>
             </children>
           </grid>
-          <grid id="1f233" binding="missionPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="1f233" binding="missionPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
-              <tabbedpane title="Mission"/>
+              <tabbedpane title-resource-bundle="Bundle" title-key="MISSION"/>
             </constraints>
             <properties>
               <name resource-bundle="Bundle" key="MISSION"/>
             </properties>
             <border type="none"/>
             <children>
-              <scrollpane id="ebf13" binding="missionTableScrollPane">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Harrington" size="16" style="3"/>
-                </properties>
-                <border type="none"/>
-                <children>
-                  <component id="fd34e" class="javax.swing.JTable" binding="missionTable">
-                    <constraints/>
-                    <properties/>
-                  </component>
-                </children>
-              </scrollpane>
               <grid id="1498c" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:d:noGrow"/>
-                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="top:5dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
@@ -237,16 +291,18 @@
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="top:4dlu:noGrow"/>
-                <rowspec value="center:max(d;4px):noGrow"/>
-                <colspec value="fill:166px:grow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <colspec value="fill:165px:grow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:166px:grow"/>
+                <colspec value="fill:165px:grow"/>
                 <colgroup>
                   <member index="1"/>
                   <member index="3"/>
                 </colgroup>
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false">
+                    <preferred-size width="297" height="269"/>
+                  </grid>
                 </constraints>
                 <properties>
                   <font name="Harrington" size="16" style="1"/>
@@ -255,7 +311,7 @@
                 <children>
                   <component id="4e920" class="javax.swing.JLabel" binding="missionManagText">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                       <forms defaultalign-horz="false"/>
                     </constraints>
                     <properties>
@@ -362,30 +418,35 @@
                 <rowspec value="center:max(d;4px):noGrow"/>
                 <rowspec value="top:4dlu:noGrow"/>
                 <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
                 <colspec value="fill:105px:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:105px:noGrow"/>
+                <colspec value="fill:212px:noGrow"/>
                 <colspec value="left:5dlu:noGrow"/>
                 <colspec value="fill:105px:noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
-                <colspec value="fill:105px:noGrow"/>
+                <colspec value="fill:212px:noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
-                <colspec value="left:14dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
                 <colspec value="left:4dlu:noGrow"/>
                 <colspec value="fill:max(d;4px):noGrow"/>
                 <colgroup>
-                  <member index="1"/>
+                  <member index="11"/>
+                  <member index="13"/>
+                </colgroup>
+                <colgroup>
                   <member index="3"/>
-                  <member index="5"/>
                   <member index="7"/>
                 </colgroup>
                 <colgroup>
-                  <member index="10"/>
-                  <member index="12"/>
+                  <member index="1"/>
+                  <member index="5"/>
                 </colgroup>
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
@@ -420,12 +481,13 @@
                       <text resource-bundle="Bundle" key="MISSION"/>
                     </properties>
                   </component>
-                  <component id="847a7" class="javax.swing.JButton" binding="sendButton" default-binding="true">
+                  <component id="847a7" class="javax.swing.JButton" binding="sendToMissionButton">
                     <constraints>
-                      <grid row="4" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
                     <properties>
+                      <enabled value="false"/>
                       <text resource-bundle="Bundle" key="SENDTOMISSION"/>
                     </properties>
                   </component>
@@ -440,51 +502,113 @@
                   </component>
                   <component id="4d43d" class="javax.swing.JComboBox" binding="missionNameComboBox">
                     <constraints>
-                      <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="6" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <model/>
+                    </properties>
+                  </component>
+                  <component id="77d09" class="javax.swing.JButton" binding="leaveMissionButton">
+                    <constraints>
+                      <grid row="4" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                      <text resource-bundle="Bundle" key="LEAVEMISSION"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="37700" layout-manager="FormLayout">
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:max(d;4px):noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:noGrow"/>
+                <rowspec value="top:4dlu:noGrow"/>
+                <rowspec value="center:d:grow"/>
+                <colspec value="fill:d:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:d:grow"/>
+                <colspec value="left:4dlu:noGrow"/>
+                <colspec value="fill:max(d;4px):noGrow"/>
+                <constraints>
+                  <grid row="0" column="1" row-span="2" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="2cfc7" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
                     <properties>
                       <model/>
                     </properties>
                   </component>
-                  <component id="77d09" class="javax.swing.JButton" binding="leaveButton" default-binding="true">
+                  <component id="f039e" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
                     <constraints>
-                      <grid row="4" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties>
+                      <enabled value="false"/>
+                    </properties>
+                  </component>
+                  <scrollpane id="ebf13" binding="missionTableScrollPane">
+                    <constraints>
+                      <grid row="6" column="0" row-span="1" col-span="8" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="1" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Harrington" size="16" style="3"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="fd34e" class="javax.swing.JTable" binding="missionTable">
+                        <constraints/>
+                        <properties/>
+                      </component>
+                    </children>
+                  </scrollpane>
+                  <hspacer id="37c6a">
+                    <constraints>
+                      <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                  </hspacer>
+                  <component id="907b2" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="2" column="0" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <forms defaultalign-horz="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Harrington" size="18" style="1"/>
+                      <text resource-bundle="Bundle" key="TAVERNMISSIONS"/>
+                    </properties>
+                  </component>
+                  <component id="42094" class="javax.swing.JButton" binding="button2" default-binding="true">
+                    <constraints>
+                      <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
                     <properties>
-                      <enabled value="true"/>
-                      <text resource-bundle="Bundle" key="LEAVEMISSION"/>
+                      <enabled value="false"/>
+                      <icon value="SearchIcon.png"/>
+                      <text value=""/>
                     </properties>
                   </component>
                 </children>
               </grid>
-              <component id="395be" class="javax.swing.JSeparator">
-                <constraints>
-                  <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <opaque value="false"/>
-                </properties>
-              </component>
-              <component id="38e32" class="javax.swing.JLabel" binding="tavernMissionsLabel">
-                <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <enabled value="true"/>
-                  <font name="Harrington" size="18" style="1"/>
-                  <text resource-bundle="Bundle" key="TAVERNMISSIONS"/>
-                </properties>
-              </component>
-              <component id="96722" class="javax.swing.JButton" binding="viewAvailableMissionsButton" default-binding="true">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text resource-bundle="Bundle" key="VIEWAVAILABLEMISSIONS"/>
-                </properties>
-              </component>
             </children>
           </grid>
         </children>

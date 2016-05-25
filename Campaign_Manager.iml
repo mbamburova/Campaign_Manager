@@ -2,5 +2,7 @@
 <module version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="derby" level="application" />
+    <orderEntry type="library" name="derby1" level="application" />
   </component>
 </module>
