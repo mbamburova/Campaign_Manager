@@ -233,12 +233,14 @@
                       <text resource-bundle="Bundle" key="VIEWBYMISSION"/>
                     </properties>
                   </component>
-                  <component id="9bf4f" class="javax.swing.JComboBox" binding="missionListcomboBox">
+                  <component id="9bf4f" class="javax.swing.JComboBox" binding="missionListComboBox">
                     <constraints>
                       <grid row="4" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                       <forms/>
                     </constraints>
-                    <properties/>
+                    <properties>
+                      <model/>
+                    </properties>
                   </component>
                   <scrollpane id="58627" binding="heroTableScrollPane">
                     <constraints>
