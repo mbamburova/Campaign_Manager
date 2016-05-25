@@ -1,3 +1,4 @@
+
 CREATE TABLE mission (
     id BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     mission_name VARCHAR(32) NOT NULL,
@@ -12,6 +13,8 @@ CREATE TABLE hero (
     hero_name VARCHAR(32) NOT NULL,
     hero_level INT
 );
+
+
 
 
 

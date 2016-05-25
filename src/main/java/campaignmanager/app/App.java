@@ -1,6 +1,7 @@
 package campaignmanager.app;
 
 import campaignmanager.backend.*;
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
@@ -9,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Created by Michaela Bamburova on 14. 5. 2016.
@@ -75,12 +78,15 @@ public class App extends JFrame {
     private org.slf4j.Logger log = LoggerFactory.getLogger(App.class);
     private DataSource dataSource;
     private JOptionPane dialog;
+    private final ResourceBundle bundle;
 
     //TODO: vlozit databazu
     //TODO: opravit bundles + dorobit pre vynimky
+    //TODO:(vylepsit update posielania hrdinov na misie)
 
     public App() {
 
+        bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
         dataSource = new CampaignDatabase().setUpDatabase();
         heroManager.setDataSource(dataSource);
         heroTable.setModel(new HeroTableModel(heroManager, campaignManager));
@@ -103,14 +109,15 @@ public class App extends JFrame {
         for (Mission mission1 : missionManager.findAllMission() ){
             missionListComboBox.addItem(mission1);
         }
-        comboBox1.addItem("view all heroes");
-        comboBox1.addItem("view free heroes");
-        comboBox1.addItem("view heroes by selected level");
-        comboBox1.addItem("view heroes by selected name");
 
-        comboBox2.addItem("view all missions");
-        comboBox2.addItem("view available missions");
-        comboBox2.addItem("view available missions for level");
+        comboBox1.addItem(bundle.getString("VIEWALLHEORES"));
+        comboBox1.addItem(bundle.getString("VIEWFREEHEROES"));
+        comboBox1.addItem(bundle.getString("VIEWHEROESBYLEVEL"));
+        comboBox1.addItem(bundle.getString("VIEWHEROESBYNAME"));
+
+        comboBox2.addItem(bundle.getString("VIEWALLMISSIONS"));
+        comboBox2.addItem(bundle.getString("VIEWAVAILABLEMISSIONS"));
+        comboBox2.addItem(bundle.getString("VIEWMISSIONSBYLEVEL"));
 
         heroCreateButton.addActionListener(new ActionListener() {
             @Override
@@ -118,7 +125,7 @@ public class App extends JFrame {
                 Hero hero = new Hero();
                 if (heroNameTextField.getText().isEmpty()) {
                     log.error("Hero name field is not filled");
-                    JOptionPane.showMessageDialog(dialog, "Hero name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(dialog, bundle.getString("HERONAMECANNOTBEEMTY"), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 hero.setName(heroNameTextField.getText());
@@ -137,7 +144,7 @@ public class App extends JFrame {
                 HeroTableModel model = (HeroTableModel) heroTable.getModel();
                 if (heroNameTextField.getText().isEmpty()) {
                     log.error("Cannot update hero! Hero name field is not filled.");
-                    JOptionPane.showMessageDialog(dialog, "Cannot update hero! Hero name field is not filled.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(dialog, bundle.getString("CANNOTUPDATE"), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 int selectedRow = heroTable.getSelectedRow();
@@ -193,7 +200,7 @@ public class App extends JFrame {
                 Mission mission = new Mission();
                 if (missionNameTextField.getText().isEmpty()) {
                     log.error("Mission name field is not filled");
-                    JOptionPane.showMessageDialog(dialog, "Mission name field is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(dialog, bundle.getString("MISSIONNAMEISEMPTY"), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 mission.setMission_name(missionNameTextField.getText());
@@ -220,7 +227,7 @@ public class App extends JFrame {
 
                 if (missionNameTextField.getText().isEmpty()) {
                     log.error("Cannot update. Mission name is not filled");
-                    JOptionPane.showMessageDialog(dialog, "Cannot update. Mission name is not filled", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(dialog, bundle.getString("CANNOTUPDATEMISSION"), "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 int selectedRow = missionTable.getSelectedRow();
@@ -434,6 +441,8 @@ public class App extends JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(App.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
+        BasicConfigurator.configure();
 
         JFrame frame = new JFrame("Campaign manager");
         frame.setContentPane(new App().panel1);

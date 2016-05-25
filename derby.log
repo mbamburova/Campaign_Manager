@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Mon May 23 21:16:11 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-df0b-c48d-0000008158a0 
-on database directory memory:C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager\campaign-database with class loader sun.misc.Launcher$AppClassLoader@16f6e28 
-Loaded from file:/C:/Users/Michaela%20Bamburov%c3%a1/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Wed May 25 14:06:48 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-e7cf-62e6-000000b4f7a8 
+on database directory memory:C:\Users\Anonym\Documents\GitHub\Campaign_Manager\campaign-database with class loader sun.misc.Launcher$AppClassLoader@167cf4d 
+Loaded from file:/C:/Users/Anonym/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_65-b17
-user.dir=C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager
+java.runtime.version=1.8.0_77-b03
+user.dir=C:\Users\Anonym\Documents\GitHub\Campaign_Manager
 os.name=Windows 10
 os.arch=x86
 os.version=10.0
