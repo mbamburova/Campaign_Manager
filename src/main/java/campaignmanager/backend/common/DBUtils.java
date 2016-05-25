@@ -1,13 +1,17 @@
 package campaignmanager.backend.common;
 
+import org.apache.commons.dbcp2.BasicDataSource;
+
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,6 +19,21 @@ public class DBUtils {
 
     private static final Logger logger = Logger.getLogger(
             DBUtils.class.getName());
+
+    public static DataSource getDataSource() throws SQLException {
+        Properties prop = new Properties();
+        try (InputStream input = DBUtils.class.getResourceAsStream("/config.properties")){
+            prop.load(input);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "error reading properties", e);
+        }
+        BasicDataSource ds = new BasicDataSource();
+        ds.setDriverClassName(prop.getProperty("driver"));
+        ds.setUrl(prop.getProperty("url"));
+        ds.setUsername(prop.getProperty("username"));
+        ds.setPassword(prop.getProperty("password"));
+        return ds;
+    }
 
     /**
      * Closes connection and logs possible error.

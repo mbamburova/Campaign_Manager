@@ -1,24 +1,24 @@
 ----------------------------------------------------------------
-Wed May 25 14:26:43 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-e7e1-9b9f-000000a1e120 
-on database directory memory:C:\Users\Anonym\Documents\GitHub\Campaign_Manager\heromgr-test with class loader sun.misc.Launcher$AppClassLoader@106d69c 
-Loaded from file:/C:/Users/Anonym/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Wed May 25 21:09:02 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0154-e951-f162-000000979a28 
+on database directory memory:C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager\heromgr-test with class loader sun.misc.Launcher$AppClassLoader@1db9742 
+Loaded from file:/C:/Users/Michaela%20Bamburov%c3%a1/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_77-b03
-user.dir=C:\Users\Anonym\Documents\GitHub\Campaign_Manager
+java.runtime.version=1.8.0_65-b17
+user.dir=C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager
 os.name=Windows 10
 os.arch=x86
 os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Wed May 25 14:26:44 CEST 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 0963c106-0154-e7e1-9b9f-000000a1e120 
-on database directory memory:C:\Users\Anonym\Documents\GitHub\Campaign_Manager\heroManagerImpl-test with class loader sun.misc.Launcher$AppClassLoader@106d69c 
-Loaded from file:/C:/Users/Anonym/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Wed May 25 21:09:03 CEST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance 0963c106-0154-e951-f162-000000979a28 
+on database directory memory:C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager\heroManagerImpl-test with class loader sun.misc.Launcher$AppClassLoader@1db9742 
+Loaded from file:/C:/Users/Michaela%20Bamburov%c3%a1/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_77-b03
-user.dir=C:\Users\Anonym\Documents\GitHub\Campaign_Manager
+java.runtime.version=1.8.0_65-b17
+user.dir=C:\Users\Michaela Bamburová\Documents\GitHub\Campaign_Manager
 os.name=Windows 10
 os.arch=x86
 os.version=10.0

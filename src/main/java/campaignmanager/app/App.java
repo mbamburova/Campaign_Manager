@@ -1,8 +1,10 @@
 package campaignmanager.app;
 
 import campaignmanager.backend.*;
+import campaignmanager.backend.common.DBUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
 
 import javax.sql.DataSource;
 import javax.swing.*;
@@ -10,8 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 /**
  * Created by Michaela Bamburova on 14. 5. 2016.
@@ -82,13 +86,22 @@ public class App extends JFrame {
 
     public App() {
 
+        try {
+            heroManager.setDataSource(DBUtils.getDataSource());
+            missionManager.setDataSource(DBUtils.getDataSource());
+            campaignManager.setDataSource(DBUtils.getDataSource());
+        } catch (SQLException e) {
+           String msg  = "Error when setting data source";
+            log.error((Marker) Level.SEVERE, msg);
+        }
+
         bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());
         dataSource = new CampaignDatabase().setUpDatabase();
-        heroManager.setDataSource(dataSource);
+
         heroTable.setModel(new HeroTableModel(heroManager, campaignManager));
-        missionManager.setDataSource(dataSource);
+
         missionTable.setModel(new MissionTableModel(missionManager, campaignManager));
-        campaignManager.setDataSource(dataSource);
+
         spinner1.setModel(new SpinnerNumberModel(1, 1, 35, 1));
         heroLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 42, 1));
         missionLevelSpinner.setModel(new SpinnerNumberModel(1, 1, 35, 1));

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="978035580">
+  <component name="DataSourceManagerImpl" format="xml" hash="3331254164">
     <data-source source="LOCAL" name="Derby (Remote) - CampaignDB@localhost" uuid="c176fbc2-2902-4607-b890-e6f5314083a9">
+      <driver-ref>derby.remote</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.apache.derby.jdbc.ClientDriver</jdbc-driver>
+      <jdbc-url>jdbc:derby://localhost:1527/CampaignDB</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Derby (Remote) - CampaignDB@localhost [2]" uuid="5e435289-5b9d-44fe-95a8-989a4821f115">
       <driver-ref>derby.remote</driver-ref>
       <synchronize>true</synchronize>
       <configured-by-url>true</configured-by-url>
