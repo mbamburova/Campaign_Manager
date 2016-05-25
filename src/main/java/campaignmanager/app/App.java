@@ -80,10 +80,6 @@ public class App extends JFrame {
     private JOptionPane dialog;
     private final ResourceBundle bundle;
 
-    //TODO: vlozit databazu
-    //TODO: opravit bundles + dorobit pre vynimky
-    //TODO:(vylepsit update posielania hrdinov na misie)
-
     public App() {
 
         bundle = ResourceBundle.getBundle("Bundle", Locale.getDefault());

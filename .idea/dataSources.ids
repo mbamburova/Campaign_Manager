@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Derby (Remote) - CampaignDB@localhost" uuid="3427021f-0ab0-41dd-ba04-2a35e762cf6f">
+    <database-info product="Apache Derby" version="10.11.1.2 - (1629631)" jdbc-version="4.2" driver-name="Apache Derby Network Client JDBC Driver" driver-version="10.11.1.1 - (1616546)">
+      <identifier-quote-string>&quot;</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact"/>
+    <schema name="APP" catalog=""/>
+    <schema name="USER" catalog=""/>
+    <table name="HERO" schema="USER" catalog="" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true"/>
+      <column name="MISSIONID" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
+      <column name="HERO_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="HERO_LEVEL" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="SQL160525120358930" columns="ID"/>
+      <foreign-key name="SQL160525120358931" columns="MISSIONID" ref-table="MISSION" ref-schema="USER" ref-catalog="" ref-columns="ID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="MISSION" schema="USER" catalog="" type="TABLE">
+      <column name="ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="QVVUT0lOQ1JFTUVOVDogc3RhcnQgMSBpbmNyZW1lbnQgMQ==" autoIncrement="true"/>
+      <column name="MISSION_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LEVEL_REQUIRED" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="CAPACITY" sqlType="INTEGER" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="AVAILABLE" sqlType="BOOLEAN" precision="1" scale="0" nullable="true" jdbcType="16"/>
+      <primary-key name="SQL160525120255650" columns="ID"/>
+    </table>
+  </data-source>
+</component>
